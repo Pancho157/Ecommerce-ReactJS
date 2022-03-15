@@ -10,6 +10,10 @@ import {
   SearchBar,
   SearchBarButton,
   SearchBarContainer,
+  SubMenu,
+  SubMenuItem,
+  SubMenuItemLink,
+  SubMenuItemToMenuItem,
 } from "./navBar.elements";
 import { AiTwotoneSliders } from "react-icons/ai";
 import {
@@ -23,7 +27,12 @@ import { MdOutlineLocalOffer } from "react-icons/md";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
+  const [show, showHide] = useState(true);
 
+  // TODO: Ver por qué no funciona la función para mostrar el menu
+  const setShow = () => {
+    showHide(!show);
+  };
   const changeClick = () => {
     setClick(!click);
   };
@@ -66,8 +75,53 @@ const NavBar = () => {
                 <FaShoppingCart />
               </MenuItemLink>
             </MenuItem>
+
+            <SubMenuItemToMenuItem onClick={() => changeClick()}>
+              <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+            </SubMenuItemToMenuItem>
+            <SubMenuItemToMenuItem onClick={() => changeClick()}>
+              <SubMenuItemLink>Categorías</SubMenuItemLink>
+            </SubMenuItemToMenuItem>
+            <SubMenuItemToMenuItem onClick={() => changeClick()}>
+              <SubMenuItemLink>Favoritos</SubMenuItemLink>
+            </SubMenuItemToMenuItem>
+            <SubMenuItemToMenuItem onClick={() => changeClick()}>
+              <SubMenuItemLink>Historial</SubMenuItemLink>
+            </SubMenuItemToMenuItem>
+            <SubMenuItemToMenuItem onClick={() => changeClick()}>
+              <SubMenuItemLink>Vende tus productos</SubMenuItemLink>
+            </SubMenuItemToMenuItem>
+            <SubMenuItemToMenuItem onClick={() => changeClick()}>
+              <SubMenuItemLink>Ayuda</SubMenuItemLink>
+            </SubMenuItemToMenuItem>
           </Menu>
         </NavbarWrapper>
+
+        <SubMenu show={show}>
+          <SubMenuItem onClick={() => setShow()}>
+            <SubMenuItemLink>
+              <FaBars />
+            </SubMenuItemLink>
+          </SubMenuItem>
+          <SubMenuItem>
+            <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+          </SubMenuItem>
+          <SubMenuItem>
+            <SubMenuItemLink>Categorías</SubMenuItemLink>
+          </SubMenuItem>
+          <SubMenuItem>
+            <SubMenuItemLink>Favoritos</SubMenuItemLink>
+          </SubMenuItem>
+          <SubMenuItem>
+            <SubMenuItemLink>Historial</SubMenuItemLink>
+          </SubMenuItem>
+          <SubMenuItem>
+            <SubMenuItemLink>Vende tus productos</SubMenuItemLink>
+          </SubMenuItem>
+          <SubMenuItem>
+            <SubMenuItemLink>Ayuda</SubMenuItemLink>
+          </SubMenuItem>
+        </SubMenu>
       </NavbarContainer>
     </>
   );
