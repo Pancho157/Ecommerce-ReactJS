@@ -199,6 +199,7 @@ export const SubMenuItemToMenuItem = styled.li`
   }
 
   @media screen and (max-width: 960px) {
+    display: flex;
     width: 100%;
     height: 70px;
   }
