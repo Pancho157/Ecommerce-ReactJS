@@ -127,7 +127,7 @@ export const SubMenu = styled.ul`
   width: 917px;
   max-width: 100%;
   height: 30px;
-  display: flex;
+  display: ${({ show }) => (show ? "flex" : "none")};
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -142,7 +142,7 @@ export const SubMenu = styled.ul`
 export const SubMenuItem = styled.li`
   height: 100%;
   padding: 0 1.2rem;
-  display: ${({ show }) => (show ? "flex" : "none")};
+  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
@@ -155,16 +155,7 @@ export const SubMenuItem = styled.li`
   &:hover {
     background-color: #626262;
     transition: 0.3s ease-in;
-
   }
-
-  &:first-of-type{
-    position: absolute;
-    display: initial;
-    height 60px;
-    top: 0;
-    left: 0;
-    padding-top: 20px;
 
   @media screen and (max-width: 960px) {   
     height: 100%;
@@ -212,3 +203,29 @@ export const SubMenuItemToMenuItem = styled.li`
     height: 70px;
   }
 `;
+
+export const SubMenuIcon = styled.button`
+position: absolute;
+display: initial;
+height: 60px;
+width: 60px;
+top: 0;
+left: 0;
+padding-top: 10px;
+font-size: 1.5rem;
+font-family: "Fira Code";
+font-weight: 400;
+cursor: pointer;
+background-color: #878484;
+border: 1px solid #707070;
+
+  &:hover {
+    background-color: #626262;
+    transition: 0.3s ease-in;
+  }
+
+  @media screen and (max-width: 960px) {   
+    display: none;wwwwwwwwwww
+  }
+}
+  `;

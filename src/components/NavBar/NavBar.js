@@ -11,6 +11,7 @@ import {
   SearchBarButton,
   SearchBarContainer,
   SubMenu,
+  SubMenuIcon,
   SubMenuItem,
   SubMenuItemLink,
   SubMenuItemToMenuItem,
@@ -97,12 +98,11 @@ const NavBar = () => {
           </Menu>
         </NavbarWrapper>
 
+        <SubMenuIcon onClick={() => setShow()}>
+          <FaBars />
+        </SubMenuIcon>
+
         <SubMenu show={show}>
-          <SubMenuItem onClick={() => setShow()}>
-            <SubMenuItemLink>
-              <FaBars />
-            </SubMenuItemLink>
-          </SubMenuItem>
           <SubMenuItem>
             <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
           </SubMenuItem>
