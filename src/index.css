@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+  /*background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20200118/pngtree-circuit-board-pattern-isolated-on-black-background-image_328066.jpg");*/
+  background-image: url("https://cdn.pixabay.com/photo/2021/01/11/10/20/circuit-board-5907811_960_720.jpg");
+}

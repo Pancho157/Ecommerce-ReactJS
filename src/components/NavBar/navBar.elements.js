@@ -12,8 +12,8 @@ export const NavbarContainer = styled.div`
 export const NavbarWrapper = styled.div`
   margin: auto;
   width: calc(100% - 60px);
+  max-width: 1650px;
   margin-left: 60px;
-  max-width: 1300px;
   height: 100%;
   align-items: center;
   display: flex;
@@ -55,7 +55,6 @@ export const Menu = styled.ul`
   }
 `;
 
-// Cuando la resolución sea menor a 960px se sumarán los elementos del submenú al menú
 export const MenuItem = styled.li`
   height: 100%;
   padding: 0.5rem 1.5rem;
@@ -77,6 +76,7 @@ export const MenuItem = styled.li`
     background-color: #49426c;
     border: none;
     cursor: default;
+    float: left;
   }
 
   @media screen and (max-width: 960px) {
@@ -88,11 +88,17 @@ export const MenuItem = styled.li`
 export const MenuItemLink = styled.a`
   text-decoration: none;
   color: #ebc08b;
+  padding-top: 10px;
+
+  @media screen and (max-width: 960px) {
+    padding: 0;
+  }
 `;
 
 export const SearchBarContainer = styled.div`
   position: relative;
   left: 15px;
+  top: -4px;
 `;
 
 export const SearchBar = styled.input`
