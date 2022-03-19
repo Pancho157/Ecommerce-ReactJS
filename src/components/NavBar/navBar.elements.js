@@ -11,7 +11,7 @@ export const NavbarContainer = styled.div`
 
 export const NavbarWrapper = styled.div`
   margin: auto;
-  width: calc(100% - 60px);
+  width: calc(100% - 150px);
   max-width: 1650px;
   margin-left: 60px;
   height: 100%;
@@ -35,6 +35,10 @@ export const IconLogo = styled.div`
   font-size: 1.2rem;
   color: #ebc08b;
   padding-left: 1.2rem;
+
+  @media screen and (max-width: 500px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Menu = styled.ul`
@@ -82,6 +86,13 @@ export const MenuItem = styled.li`
   @media screen and (max-width: 960px) {
     width: 100%;
     height: 70px;
+
+    &:nth-child(4) {
+      display: initial;
+      background-color: #49426c;
+      border-bottom: none;
+      transition: none;
+    }
   }
 `;
 

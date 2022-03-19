@@ -21,16 +21,16 @@ import {
   FaBars,
   FaTimes,
   FaSearch,
-  FaShoppingCart,
+  // FaShoppingCart,
   FaRegUserCircle,
 } from "react-icons/fa";
 import { MdOutlineLocalOffer } from "react-icons/md";
+import Cart from "./cart";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
   const [show, showHide] = useState(true);
 
-  // TODO: Ver por qué no funciona la función para mostrar el menu
   const setShow = () => {
     showHide(!show);
   };
@@ -46,9 +46,11 @@ const NavBar = () => {
             Dígito Electrónico
           </IconLogo>
 
+          <Cart />
           <IconLogoMobile onClick={() => changeClick()}>
             {click ? <FaTimes /> : <FaBars />}
           </IconLogoMobile>
+
 
           <Menu click={click}>
             <MenuItem onClick={() => changeClick()}>
@@ -71,11 +73,9 @@ const NavBar = () => {
                 <FaRegUserCircle />
               </MenuItemLink>
             </MenuItem>
-            <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink>
-                <FaShoppingCart />
-              </MenuItemLink>
-            </MenuItem>
+            {/* <MenuItem>
+              <Cart />
+            </MenuItem> */}
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
               <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
