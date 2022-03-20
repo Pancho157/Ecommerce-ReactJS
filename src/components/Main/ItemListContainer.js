@@ -1,4 +1,4 @@
-import "./Main.css";
+import "./ItemListContainer.css";
 
 export default function Main(props) {
   return (
