@@ -26,18 +26,20 @@ export const NavbarWrapper = styled.div`
   }
 `;
 
-export const IconLogo = styled.div`
+export const IconLogo = styled.h1`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   font-family: "Fira Code";
+  font-weight: 500;
   font-size: 1.2rem;
   color: #ebc08b;
   padding-left: 1.2rem;
 
   @media screen and (max-width: 500px) {
     font-size: 1rem;
+    font-weight: 400;
   }
 `;
 

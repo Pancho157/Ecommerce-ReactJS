@@ -25,7 +25,7 @@ import {
   FaRegUserCircle,
 } from "react-icons/fa";
 import { MdOutlineLocalOffer } from "react-icons/md";
-import Cart from "./cart";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -46,7 +46,7 @@ const NavBar = () => {
             Dígito Electrónico
           </IconLogo>
 
-          <Cart />
+          <CartWidget />
           <IconLogoMobile onClick={() => changeClick()}>
             {click ? <FaTimes /> : <FaBars />}
           </IconLogoMobile>

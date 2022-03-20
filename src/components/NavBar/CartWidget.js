@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import './cart.css';
+import './CartWidget.css';
 
-function Cart(props) {
+function CartWidget(props) {
   return (
     <>
       {/* Colocar acá los children del Navbar */}
-      <NavItem icon={ <FaShoppingCart /> }>
+      <NavItem icon={ <FaShoppingCart />} >
         <DropdownMenu></DropdownMenu>
       </NavItem>
     </>
@@ -28,9 +28,9 @@ function DropdownMenu() {
     <>
       <div className="dropdown">
         {/* Los items del submenu se colocan acá */}
-        <DropdownItem rightIcon={">"}>Item 1</DropdownItem>
-        <DropdownItem rightIcon={">"}>Item 2</DropdownItem>
-        <DropdownItem rightIcon={">"}>Item 3</DropdownItem>
+        <DropdownItem rightIcon={">"}>Producto 1</DropdownItem>
+        <DropdownItem rightIcon={">"}>Producto 2</DropdownItem>
+        <DropdownItem rightIcon={">"}>Producto 3</DropdownItem>
       </div>
     </>
   );
@@ -52,4 +52,4 @@ function NavItem(props) {
   );
 }
 
-export default Cart;
+export default CartWidget;
