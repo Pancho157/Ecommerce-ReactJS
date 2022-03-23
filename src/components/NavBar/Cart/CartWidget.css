@@ -53,9 +53,19 @@ a {
   height: 20px;
 }
 
+.triangle {
+  width: 0;
+  height: 0;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid #b0a4ec;
+  border-left: 6px solid transparent;
+  position: absolute;
+  top: 38px;
+}
+
 .dropdown {
   position: absolute;
-  top: 58px;
+  top: 50px;
   width: 300px;
   transform: translateX(-45%);
   background-color: var(--bg);

@@ -95,6 +95,32 @@ export const MenuItem = styled.li`
       border-bottom: none;
       transition: none;
     }
+
+    &:nth-child(2):before {
+      content: "Ofertas";
+      height: 100%;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      font-family: "Fira Code";
+      font-weight: 400;
+      cursor: pointer;
+      color: #ebc08b;
+    }
+
+    &:nth-child(3):before {
+      content: "Usuario";
+      height: 100%;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      font-family: "Fira Code";
+      font-weight: 400;
+      cursor: pointer;
+      color: #ebc08b;
+    }
   }
 `;
 
@@ -119,6 +145,10 @@ export const SearchBar = styled.input`
   height: 30px;
   border-radius: 20px;
   padding-left: 15px;
+
+  @media screen and (max-width: 410px) {
+    width: 250px;
+  }
 `;
 
 export const SearchBarButton = styled.button`

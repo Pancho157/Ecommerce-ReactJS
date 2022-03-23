@@ -21,11 +21,10 @@ import {
   FaBars,
   FaTimes,
   FaSearch,
-  // FaShoppingCart,
   FaRegUserCircle,
 } from "react-icons/fa";
 import { MdOutlineLocalOffer } from "react-icons/md";
-import CartWidget from "./CartWidget";
+import CartWidget from "./Cart/CartWidget";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);

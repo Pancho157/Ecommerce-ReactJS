@@ -7,6 +7,7 @@ function CartWidget(props) {
     <>
       {/* Colocar acá los children del Navbar */}
       <NavItem icon={ <FaShoppingCart />} >
+        <div className="triangle"></div>
         <DropdownMenu></DropdownMenu>
       </NavItem>
     </>
