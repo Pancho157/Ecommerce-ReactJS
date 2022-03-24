@@ -1,18 +1,33 @@
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = ({ stock, onAdd, onRemove }) => {
+const ItemCount = ({ stock }) => {
   const [userinput, setUserInput] = useState(1);
 
+  const onAdd = () => {
+    if (userinput < stock) {
+      setUserInput(userinput + 1);
+    }
+  };
+
+  const onRemove = () => {
+    if (userinput > 1) {
+      setUserInput(userinput - 1);
+    }
+  };
 
   return (
     <>
       <div className={"count-container"}>
-        <button stock={stock} userinput={userinput} inputSetter={setUserInput} onClick={() => onRemove()}>
+        <button 
+          onClick={onRemove}
+        >
           -
         </button>
         <p>{userinput}</p>
-        <button stock={stock} userinput={userinput} inputSetter={setUserInput} onClick={() => onAdd()}>
+        <button
+          onClick={onAdd}
+        >
           +
         </button>
       </div>
@@ -22,16 +37,22 @@ const ItemCount = ({ stock, onAdd, onRemove }) => {
   );
 };
 
-function onAdd({userinput, stock, inputSetter}) {
-  if (userinput < stock) {
-    inputSetter(userinput + 1);
-  } return userinput;}
 
-function onRemove({userinput, inputSetter}) {
-  if (userinput > 1) {
-    inputSetter(userinput - 1);
-  }
-  return userinput;
-}
 
-  export default ItemCount;
+// Estuve haciendo algunas pruebas para hacerlo funcionar de otra manera, sin éxito todavía jajaja
+
+// function onAdd({ userinput, stock, setUserInput }) {
+//   if (userinput < stock) {
+//     setUserInput(userinput + 1);
+//   }
+//   return userinput;
+// }
+
+// function onRemove({ userinput, setUserInput }) {
+//   if (userinput > 1) {
+//     setUserInput(userinput - 1);
+//   }
+//   return userinput;
+// }
+
+export default ItemCount;
