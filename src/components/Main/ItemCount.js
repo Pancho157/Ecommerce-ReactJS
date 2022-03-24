@@ -19,25 +19,15 @@ const ItemCount = ({ stock }) => {
   return (
     <>
       <div className={"count-container"}>
-        <button 
-          onClick={onRemove}
-        >
-          -
-        </button>
+        <button onClick={onRemove}>-</button>
         <p>{userinput}</p>
-        <button
-          onClick={onAdd}
-        >
-          +
-        </button>
+        <button onClick={onAdd}>+</button>
       </div>
 
       <button className={"card-buy"}>Comprar</button>
     </>
   );
 };
-
-
 
 // Estuve haciendo algunas pruebas para hacerlo funcionar de otra manera, sin éxito todavía jajaja
 
