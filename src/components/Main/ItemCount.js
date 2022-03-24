@@ -1,16 +1,18 @@
+import { useState } from "react";
 import "./ItemCount.css";
 
 const ItemCount = ({ stock, onAdd, onRemove }) => {
-  var userinput = 1;
+  const [userinput, setUserInput] = useState(1);
+
 
   return (
     <>
       <div className={"count-container"}>
-        <button stock={stock} userinput={userinput} onClick={onRemove}>
+        <button stock={stock} userinput={userinput} inputSetter={setUserInput} onClick={() => onRemove()}>
           -
         </button>
         <p>{userinput}</p>
-        <button stock={stock} userinput={userinput} onClick={onAdd}>
+        <button stock={stock} userinput={userinput} inputSetter={setUserInput} onClick={() => onAdd()}>
           +
         </button>
       </div>
@@ -20,19 +22,16 @@ const ItemCount = ({ stock, onAdd, onRemove }) => {
   );
 };
 
-export default ItemCount;
+function onAdd({userinput, stock, inputSetter}) {
+  if (userinput < stock) {
+    inputSetter(userinput + 1);
+  } return userinput;}
 
-function onAdd({ userInput, stock }) {
-  if (userInput < stock) {
-    userInput++;
-    console.log(userInput);
-  }
-  return userInput;
-}
-
-function onRemove({ userinput }) {
+function onRemove({userinput, inputSetter}) {
   if (userinput > 1) {
-    userinput--;
+    inputSetter(userinput - 1);
   }
   return userinput;
 }
+
+  export default ItemCount;
