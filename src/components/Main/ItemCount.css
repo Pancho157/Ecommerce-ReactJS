@@ -3,6 +3,8 @@
   height: 20px;
   display: flex;
   flex-direction: row;
+  position: relative;
+  top: 15px;
 }
 
 .count-container p {
@@ -11,13 +13,22 @@
   color: rgb(134, 134, 134);
   background-color: #fff;
   border: black;
-}
-
-.count-container input:active{
-    color: black;
+  text-align: center;
 }
 
 .count-container > button {
-  width: 20px;
+  width: 25px;
   height: 20px;
+  background-color: #49426c;
+  color: white;
+}
+
+.card-buy {
+  width: 90px;
+  margin-left: 70px;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  position: relative;
+  top: -15px;
 }

@@ -72,9 +72,6 @@ const NavBar = () => {
                 <FaRegUserCircle />
               </MenuItemLink>
             </MenuItem>
-            {/* <MenuItem>
-              <Cart />
-            </MenuItem> */}
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
               <SubMenuItemLink>Nuestros productos</SubMenuItemLink>

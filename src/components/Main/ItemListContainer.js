@@ -1,4 +1,4 @@
-import ItemCount from "../NavBar/Cart/ItemCount";
+import ItemCount from "./ItemCount";
 import "./ItemListContainer.css";
 
 export default function Main(props) {
@@ -70,16 +70,17 @@ export default function Main(props) {
 }
 
 function Card(props) {
+  const stock = props.stock;
+
   return (
     <div className="card">
-      <img href={props.imgUrl} className={"card-image"}></img>
+      <img href={props.imgUrl} alt={props.title} className={"card-image"}></img>
       <h3 className={"card-tittle"}>{props.title}</h3>
-      <p>Marca: { props.brand }</p>
-      <p>Modelo: { props.model }</p>
-      <p>Precio: $ { props.price }</p>
-      <p>Stock actual: { props.stock }</p>
-      <ItemCount stock={ props.stock }/>
-      <button className={"card-buy"}>Comprar</button>
+      <p>Marca: {props.brand}</p>
+      <p>Modelo: {props.model}</p>
+      <p>Precio: $ {props.price}</p>
+      <p>Stock actual: {props.stock}</p>
+      <ItemCount stock={stock} />
     </div>
   );
 }
