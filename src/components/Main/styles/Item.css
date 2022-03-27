@@ -5,6 +5,7 @@
     border-radius: 15px;
     padding: 10px;
     border: 2px solid #ebc08b;
+    overflow: hidden;
   }
   
   .card-image{
@@ -15,9 +16,17 @@
       border: 1px solid black;
       background-color: #fff;
       border-radius: 10px;
+      object-fit: contain;
   }
   
   .card-tittle {
     text-align: center;
     margin-bottom: 10px;
+  }
+
+  .card-tittle,
+  p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }

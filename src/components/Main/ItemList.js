@@ -30,13 +30,22 @@ const ItemList = () => {
     getApiProducts();
   }, []);
   // Llama a la función que almacena los datos en el array products, los recorre con el map y los renderiza con el <Item data={product} />
-  // Al <Item data={product} /> se le pasan todos los datos porque la idea es implementar una función que muestre todos los datos del artículo cuando uno le hace click al <article> de la card
+  // Al <Item data={product} /> se le pasan todos los datos porque la idea es implementar una función que muestre todos los datos del artículo cuando uno le hace click al <article> que contiene la Card
   return (
     <div className="cards-container">
       {products.map((product) => {
         return (
           <div key={product.id} disabled={true}>
-            <Item data={product} />
+            <Item
+              id={product.id}
+              imgUrl={product.imgUrl}
+              title={product.title}
+              brand={product.brand}
+              model={product.model}
+              price={product.price}
+              stock={product.stock}
+              description={product.description}
+            />
           </div>
         );
       })}
