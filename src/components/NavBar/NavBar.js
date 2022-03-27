@@ -15,7 +15,7 @@ import {
   SubMenuItem,
   SubMenuItemLink,
   SubMenuItemToMenuItem,
-} from "./navBar.elements";
+} from "./styles/navBar.elements";
 import { AiTwotoneSliders } from "react-icons/ai";
 import {
   FaBars,
@@ -24,7 +24,7 @@ import {
   FaRegUserCircle,
 } from "react-icons/fa";
 import { MdOutlineLocalOffer } from "react-icons/md";
-import CartWidget from "./Cart/CartWidget";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import './CartWidget.css';
+import './styles/CartWidget.css';
 
 function CartWidget(props) {
   return (
