@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ItemCount.css";
+import "./styles/ItemCount.css";
 
 const ItemCount = ({ stock }) => {
   const [userinput, setUserInput] = useState(1);
@@ -19,30 +19,16 @@ const ItemCount = ({ stock }) => {
   return (
     <>
       <div className={"count-container"}>
-        <button onClick={onRemove}>-</button>
+        <button onClick={onRemove} disabled={userinput <= 0 ? true : null}>
+          -
+        </button>
         <p>{userinput}</p>
         <button onClick={onAdd}>+</button>
       </div>
 
-      <button className={"card-buy"}>Comprar</button>
+      <button className={"card-buy"}>Agregar al carrito</button>
     </>
   );
 };
-
-// Estuve haciendo algunas pruebas para hacerlo funcionar de otra manera, sin éxito todavía jajaja
-
-// function onAdd({ userinput, stock, setUserInput }) {
-//   if (userinput < stock) {
-//     setUserInput(userinput + 1);
-//   }
-//   return userinput;
-// }
-
-// function onRemove({ userinput, setUserInput }) {
-//   if (userinput > 1) {
-//     setUserInput(userinput - 1);
-//   }
-//   return userinput;
-// }
 
 export default ItemCount;
