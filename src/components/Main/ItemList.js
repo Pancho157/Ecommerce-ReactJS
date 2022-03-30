@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+
+// Components
 import { mainPageProducts } from "../../data/data";
 import Item from "./Item";
+
+// Styles
 import "./styles/ItemList.css";
 
 const ItemList = () => {
@@ -28,7 +32,7 @@ const ItemList = () => {
 
   useEffect(() => {
     getApiProducts();
-  }, []);
+  }, []);  // <-- Array de dependencias - Al estar vacío lo que está dentro del useEffect se ejecuta solo una vez (etapa de montaje)
   // Llama a la función que almacena los datos en el array products, los recorre con el map y los renderiza con el <Item data={product} />
   // Al <Item data={product} /> se le pasan todos los datos porque la idea es implementar una función que muestre todos los datos del artículo cuando uno le hace click al <article> que contiene la Card
   return (

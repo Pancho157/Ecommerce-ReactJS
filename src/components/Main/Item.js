@@ -1,19 +1,13 @@
 import React from "react";
+
+// Components
 import ItemCount from "./ItemCount.js";
 
+// Styles
 import "./styles/Item.css";
 
-const Item = ({
-  id,
-  imgUrl,
-  title,
-  brand,
-  model,
-  price,
-  stock,
-  description,
-}) => {
-  // Todo: hacer que las imagenes se muestren de manera dinámica (seguir tratando con webpack)
+const Item = ({ id, imgUrl, title, brand, model, price, stock }) => {
+  // Todo: hacer que las imagenes se muestren de manera dinámica con archivos locales y sin estar en la carpeta public (seguir tratando con webpack)
   // const cargarImagen = require.context('../../images', true);
 
   return (
@@ -25,12 +19,11 @@ const Item = ({
 
     // No aplico la función sobre el div que contiene el article porque tendría que pasar nuevamente las props, lo que se me hace que es un malgasto de cómputo
 
-    <article className="card">
+    <article className="card" productId={id}>
       <img
         // src={cargarImagen(`./${ imgUrl }.jpg`)}
         // Todo: segunda parte del webpack (a revisar)
 
-        // No entiendo el por qué no muestra la imagen, siendo que el link de referencia está bien, también probé de otras maneras el link, pero no logro hacerlo funcionar
         src={imgUrl}
         alt={title}
         className={"card-image"}

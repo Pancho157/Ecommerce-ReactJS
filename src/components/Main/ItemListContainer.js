@@ -1,17 +1,16 @@
-import ItemCount from "./ItemCount";
+// Components
 import ItemList from "./ItemList";
+
+// Styles
 import "./styles/ItemListContainer.css";
 
 export default function Main(props) {
   return (
     <main className="main">
-      <h2 className="main-tittle">Nuestros Productos</h2>
-      <div className="cards-container">
-        {/* Los datos de las cards a renderizar se deben colocar en el archivo data.js */}
+      <h2 className="main-tittle">{props.children}</h2>
 
       <ItemList />
-      </div>
+      {/* ItemList es el contenedor que llama a una función (Item) para renderizar los datos de las cards que se encuentran en el archivo data.js */}
     </main>
   );
 }
-
