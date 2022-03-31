@@ -19,7 +19,7 @@ const Item = ({ id, imgUrl, title, brand, model, price, stock }) => {
 
     // No aplico la función sobre el div que contiene el article porque tendría que pasar nuevamente las props, lo que se me hace que es un malgasto de cómputo
 
-    <article className="card" productId={id}>
+    <article className="card" productid={id}>
       <img
         // src={cargarImagen(`./${ imgUrl }.jpg`)}
         // Todo: segunda parte del webpack (a revisar)
@@ -33,7 +33,7 @@ const Item = ({ id, imgUrl, title, brand, model, price, stock }) => {
       <p>Modelo: {model}</p>
       <p>Precio: $ {price}</p>
       <p>Stock actual: {stock}</p>
-      <ItemCount stock={stock} />
+      <ItemCount stock={stock}>Agregar al carrito</ItemCount>
     </article>
   );
 };

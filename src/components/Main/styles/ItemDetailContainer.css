@@ -1,0 +1,12 @@
+.detailItem-main {
+  width: 100%;
+  min-height: 87vh;
+  background-image: url("../../../images/mainBackground.webp");
+  padding: 30px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 30px;
+  align-items: center;
+  justify-content: center;
+}

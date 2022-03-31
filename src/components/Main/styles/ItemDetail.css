@@ -1,0 +1,131 @@
+* {
+  max-width: 100%;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightGroupElements {
+  display: flex;
+  width: 500px;
+  height: 600px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+
+
+/* Sección del a imagen */
+.img-section {
+  float: left;
+  background-color: #b0a4ec;
+  width: 500px;
+  height: 600px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 15px;
+  row-gap: 15px;
+  border: 3px solid #ebc08b;
+}
+
+.img-section > img {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.img-section > img:first-of-type {
+  width: 100%;
+  height: 490px;
+  border-radius: 15px;
+}
+
+
+
+/* Sección para comprar */
+
+.buy-section {
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid #ebc08b;
+}
+
+.main-title,
+.description-title {
+  width: 500px;
+  max-width: 100%;
+  min-height: 35px;
+  line-height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ebc08b;
+  font-size: 1.7rem;
+  border-radius: 20px;
+  border: 3px solid #ebc08b;
+  background-color: #8976e2;
+}
+
+.price {
+  line-height: 26px;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.stock {
+  color: grey;
+}
+
+.price,
+.stock {
+  margin-left: 30px;
+}
+
+
+
+/* Estilos del ItemCount */
+
+.contador{
+  padding-left: calc(50% - (184px / 2));
+}
+
+
+/* Sección de la descripción */
+.desc-section {
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid #ebc08b;
+  height: auto;
+  padding-bottom: 10px;
+}
+
+.description-title {
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.desc-section > p {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: auto;
+  white-space: pre-wrap;
+  text-overflow: initial;
+}

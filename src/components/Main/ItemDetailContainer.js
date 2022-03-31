@@ -1,18 +1,37 @@
-/* 
-Consigna:
-    Crea tu componente ItemDetailContainer, con la misma premisa que ItemListContainer
+// Componentes
+import { useEffect, useState } from "react";
+import { mainPageProducts, mockProduct } from "../../data/data";
+import ItemDetail from "./ItemDetail";
 
-Aspectos a incluir en el entregable:
-    Al iniciar utilizando un efecto de montaje, debe llamar a un async mock, utilizando lo visto en la clase anterior con Promise, que en 2 segundos le devuelva un 1 item, y lo guarde en un estado propio
-*/
+// Styles
+import "./styles/ItemDetailContainer.css";
+export default function ItemDetailContainer({  }) {
+  const [item, setItem] = useState({});
 
-const getItem = () => {
-  // Esta función debe retornar la promesa que resuelva con delay
-};
+  // Trae el array de un solo producto (lo hice así porque el profe dijo que lo hagamos así antes de rompernos la cabeza, ya que iba a ser entregar y cambiarlo)
+  const getProduct = () => {
+    return new Promise((resolve, reject) => {
+      return resolve(mockProduct);
+    });
+  };
 
-function ItemDetailContainer() {
-  // Implementar mock invocando a getItem() y utilizando el resolver then
-  return <>{/* JSX que devuelva un ItemDetail (punto 2) */}</>;
+  // Espera a que se resuelva la promesa y almacena el resultado en "item"
+  useEffect(() => {
+    getProduct()
+      .then((productData) => {
+        setItem(productData);
+      })
+      .finally(() => {
+        console.log("Termino la llamada");
+      });
+  }, []); // se ejecuta en la etapa de montaje porque el array de dependencias está vacío
+
+  return (
+    <>
+    {/* Llama a la parte estética del detalle del producto y le pasa los props para rellenar los campos */}
+    <main className="detailItem-main">
+      <ItemDetail data={item} />
+    </main>
+    </>
+  );
 }
-
-export default ItemDetailContainer;

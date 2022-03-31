@@ -1,12 +1,14 @@
 import { useState } from "react";
 
 // Styles
-import "./styles/ItemCount.css";
+import "./styles/ItemCount.css"
 
 // Este archivo muestra un contador con la cantidad que el usuario quiere agregar al carrito de un cierto elemento
 // También renderiza el botón para llevar al artículo al carrito
 
-const ItemCount = ({ stock }) => {
+// Los estilos para los botones son asignados por la función que lo llama, ya que cambia dependiendo de donde se encuentre
+
+const ItemCount = (props, { stock }) => {
   const [userinput, setUserInput] = useState(1);
 
   // Funciones que agregan y restan al contador que indica la cantidad a agregar al carrito
@@ -32,7 +34,7 @@ const ItemCount = ({ stock }) => {
         <button onClick={onAdd}>+</button>
       </div>
 
-      <button className={"card-buy"}>Agregar al carrito</button>
+      <button className={"card-buy"}>{props.children}</button>
     </>
   );
 };

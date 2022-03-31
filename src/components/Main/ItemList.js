@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 // Components
 import { mainPageProducts } from "../../data/data";
 import Item from "./Item";
+import ItemDetailContainer from "./ItemDetailContainer";
 
 // Styles
 import "./styles/ItemList.css";
+
 
 const ItemList = () => {
   const [products, setProducts] = useState([]);
@@ -39,7 +41,8 @@ const ItemList = () => {
     <section className="cards-container">
       {products.map((product) => {
         return (
-          <div key={product.id} disabled={true}>
+          <div key={product.id} onClick={ItemDetailContainer}>
+            {/* Cuando se haga click sobre el producto va a llamar a la función que muestra el detalle del mismo */}
             <Item
               id={product.id}
               imgUrl={product.imgUrl}
