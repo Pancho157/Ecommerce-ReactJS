@@ -21,7 +21,7 @@ function ItemDetail({ data }) {
             <p className="price">Precio: {data.price}</p>
             <p className="stock">Stock actual: {data.stock}</p>
             <div className="contador">
-              <ItemCount stock={data.stock}>Comprar</ItemCount>
+              <ItemCount stock={data.stock} />
             </div>
           </section>
 

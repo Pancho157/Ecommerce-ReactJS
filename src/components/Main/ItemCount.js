@@ -8,7 +8,7 @@ import "./styles/ItemCount.css"
 
 // Los estilos para los botones son asignados por la función que lo llama, ya que cambia dependiendo de donde se encuentre
 
-const ItemCount = (props, { stock }) => {
+const ItemCount = ({ stock }) => {
   const [userinput, setUserInput] = useState(1);
 
   // Funciones que agregan y restan al contador que indica la cantidad a agregar al carrito
@@ -34,7 +34,7 @@ const ItemCount = (props, { stock }) => {
         <button onClick={onAdd}>+</button>
       </div>
 
-      <button className={"card-buy"}>{props.children}</button>
+      <button className={"card-buy"}>Agregar al carrito</button>
     </>
   );
 };

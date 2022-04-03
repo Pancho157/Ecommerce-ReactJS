@@ -6,9 +6,8 @@ import ItemDetailContainer from "../components/Main/ItemDetailContainer";
 function Home() {
   return (
     <>
-      {/* <Main>Nuestros Productos</Main> */}
-      {/* El texto dentro del main se vuelve el título principal */}
-      <ItemDetailContainer />
+      <Main>Nuestros Productos</Main>
+      {/* <ItemDetailContainer /> */}
     </>
   );
 }
