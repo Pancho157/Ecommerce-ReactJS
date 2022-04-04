@@ -75,41 +75,50 @@ const NavBar = () => {
               </MenuItemLink>
             </MenuItem>
             <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink>
-                <MdOutlineLocalOffer />
-              </MenuItemLink>
+              <Link to={`/offers`}>
+                <MenuItemLink>
+                  <MdOutlineLocalOffer />
+                </MenuItemLink>
+              </Link>
             </MenuItem>
             <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink>
-                <FaRegUserCircle />
-              </MenuItemLink>
+              <Link to={`/inicioSesion`}>
+                <MenuItemLink>
+                  <FaRegUserCircle />
+                </MenuItemLink>
+              </Link>
             </MenuItem>
 
             {/* Es el mismo submenú que se encuentra debajo, pero este se renderiza solamente cuando la resolución sea menor a 960px, ya que se encuentra junto al menú principal */}
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
               <Link to={`/`}>
-                <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+                <SubMenuItemLink>Todos los productos</SubMenuItemLink>
               </Link>
             </SubMenuItemToMenuItem>
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <Link to={`/categories`}>
-                <SubMenuItemLink>Categorías</SubMenuItemLink>
+              <Link to={`/herramientas`}>
+                <SubMenuItemLink>Herramientas</SubMenuItemLink>
               </Link>
             </SubMenuItemToMenuItem>
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <SubMenuItemLink>Favoritos</SubMenuItemLink>
+              <Link to={`/consumibles`}>
+                <SubMenuItemLink>Consumibles</SubMenuItemLink>
+              </Link>
             </SubMenuItemToMenuItem>
+
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <SubMenuItemLink>Historial</SubMenuItemLink>
+              <Link to={`/`}>
+                <SubMenuItemLink>Vende tus productos</SubMenuItemLink>
+              </Link>
             </SubMenuItemToMenuItem>
+
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <SubMenuItemLink>Vende tus productos</SubMenuItemLink>
-            </SubMenuItemToMenuItem>
-            <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <SubMenuItemLink>Ayuda</SubMenuItemLink>
+              <Link to={`/contacto`}>
+                <SubMenuItemLink>Contáctanos</SubMenuItemLink>
+              </Link>
             </SubMenuItemToMenuItem>
           </Menu>
         </NavbarWrapper>
@@ -124,23 +133,28 @@ const NavBar = () => {
         <SubMenu show={show}>
           <SubMenuItem>
             <Link to={`/`}>
-              <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+              <SubMenuItemLink>Todos los productos</SubMenuItemLink>
             </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <SubMenuItemLink>Categorías</SubMenuItemLink>
+            <Link to={`/herramientas`}>
+              <SubMenuItemLink>Herramientas</SubMenuItemLink>
+            </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <SubMenuItemLink>Favoritos</SubMenuItemLink>
+            <Link to={`/consumibles`}>
+              <SubMenuItemLink>Consumibles</SubMenuItemLink>
+            </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <SubMenuItemLink>Historial</SubMenuItemLink>
+            <Link to={`/`}>
+              <SubMenuItemLink>Vende tus productos</SubMenuItemLink>
+            </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <SubMenuItemLink>Vende tus productos</SubMenuItemLink>
-          </SubMenuItem>
-          <SubMenuItem>
-            <SubMenuItemLink>Ayuda</SubMenuItemLink>
+            <Link to={`/contacto`}>
+              <SubMenuItemLink>Contáctanos</SubMenuItemLink>
+            </Link>
           </SubMenuItem>
         </SubMenu>
       </NavbarContainer>

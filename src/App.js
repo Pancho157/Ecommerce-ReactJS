@@ -13,28 +13,28 @@ import ItemPage from "./pages/ItemPage";
 import ItemSell from "./pages/ItemSell";
 import SellList from "./pages/SellList";
 import NotFound from "./pages/NotFound";
+import SingIn from "./pages/SingIn";
 import Footer from "./components/Footer/Footer";
-import CategoriesPage from "./pages/Categories";
-
 function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar/>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/carrito" element={<Cart />} /> */}
-          {/* <Route path="/contacto" element={<Contact />} /> */}
+          <Route path="/contacto" element={<Contact />} />
           <Route path="/:categoty/:id" element={<DetailPage />} />
-          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/:categories" element={<Home />} />
           {/* <Route path="/detalle" element={<ItemPage />} /> */}
           {/* <Route path="/venta/item" element={<ItemSell />} /> */}
           {/* <Route path="/ventas/items" element={<SellList />} /> */}
-
+          {/* <Route path="/iniciarSesion" element={<SingIn />} /> */}
+e
           {/* Todo lo que no esté definido arriba va a entrar a la siguiente ruta */}
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );

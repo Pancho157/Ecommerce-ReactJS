@@ -51,13 +51,17 @@ export const Menu = styled.ul`
 
   @media screen and (max-width: 960px) {
     width: 100%;
-    height: 90vh;
+    height: 84vh;
     position: absolute;
-    top: 80px;
+    top: 71px;
     left: ${({ click }) => (click ? 0 : "-100%")};
     flex-direction: column;
     transition: 0.5s all ease-in;
     background-color: #49426c;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 83vh;
   }
 `;
 
@@ -173,7 +177,7 @@ export const IconLogoMobile = styled.div`
 
 // Mientras que la resolución sea mayor a 960px el submenú se mostrará a la izquierda, y cuando sea menor a 960px se mostrará dentro del menú principal
 export const SubMenu = styled.ul`
-  width: 917px;
+  width: 896px;
   max-width: 100%;
   height: 30px;
   display: ${({ show }) => (show ? "flex" : "none")};

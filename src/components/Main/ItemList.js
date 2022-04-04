@@ -2,7 +2,7 @@
 // También actua como un contenedor de segundo nivel de las Cards (El de primer nivel es el <main></main>)
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // Components
 import { mainPageProducts } from "../../data/data";
@@ -12,8 +12,8 @@ import ItemDetailContainer from "./ItemDetailContainer";
 // Styles
 import "./styles/ItemList.css";
 
-
 const ItemList = () => {
+  const {category} = useParams();
   const [products, setProducts] = useState([]);
   // En products se almacenan los datos de la API (en este caso vienen del archivo data.js)
 
@@ -26,7 +26,6 @@ const ItemList = () => {
 
   const getApiProducts = async () => {
     // Espera a que finalice la promise y almacena los productos en el array vacío (products)
-    // No veo el porqué la parte del catch está solo para simular que la API a la cual se simula conectarse falle
     try {
       const result = await getProducts;
       setProducts(result);
@@ -38,14 +37,17 @@ const ItemList = () => {
 
   useEffect(() => {
     getApiProducts();
-  }, []);  // <-- Array de dependencias - Al estar vacío lo que está dentro del useEffect se ejecuta solo una vez (etapa de montaje)
-  // Llama a la función que almacena los datos en el array products, los recorre con el map y los renderiza con el <Item data={product} />
-  // Al <Item data={product} /> se le pasan todos los datos porque la idea es implementar una función que muestre todos los datos del artículo cuando uno le hace click al <article> que contiene la Card
+  }, []);
+
+  // Llama a la función que almacena los datos en el array products, los recorre con el map y los renderiza con el <Item {props} />
   return (
     <section className="cards-container">
       {products.map((product) => {
         return (
-          <Link to={`/${product.category}/${product.id}`} onClick={ItemDetailContainer}>
+          <Link
+            to={`/${product.category}/${product.id}`}
+            onClick={ItemDetailContainer}
+          >
             {/* Cuando se haga click sobre el producto va a llamar a la función que muestra el detalle del mismo */}
             <Item
               id={product.id}
