@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // Components
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 // Styled Components
 import {
@@ -46,10 +47,12 @@ const NavBar = () => {
     <>
       <NavbarContainer>
         <NavbarWrapper>
-          <IconLogo>
-            <AiTwotoneSliders size={"2em"} />
-            Dígito Electrónico
-          </IconLogo>
+          <Link to={`/`}>
+            <IconLogo>
+              <AiTwotoneSliders size={"2em"} />
+              Dígito Electrónico
+            </IconLogo>
+          </Link>
 
           {/* Carrito, junto a su funcionalidad de DropdownMenu */}
           <CartWidget />
@@ -83,12 +86,19 @@ const NavBar = () => {
             </MenuItem>
 
             {/* Es el mismo submenú que se encuentra debajo, pero este se renderiza solamente cuando la resolución sea menor a 960px, ya que se encuentra junto al menú principal */}
+
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+              <Link to={`/`}>
+                <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+              </Link>
             </SubMenuItemToMenuItem>
+
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <SubMenuItemLink>Categorías</SubMenuItemLink>
+              <Link to={`/categories`}>
+                <SubMenuItemLink>Categorías</SubMenuItemLink>
+              </Link>
             </SubMenuItemToMenuItem>
+
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
               <SubMenuItemLink>Favoritos</SubMenuItemLink>
             </SubMenuItemToMenuItem>
@@ -110,11 +120,12 @@ const NavBar = () => {
           <FaBars />
         </SubMenuIcon>
 
-
         {/* Sub menú, este se muestra siempre que la resolución sea mayor a 960px */}
         <SubMenu show={show}>
           <SubMenuItem>
-            <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+            <Link to={`/`}>
+              <SubMenuItemLink>Nuestros productos</SubMenuItemLink>
+            </Link>
           </SubMenuItem>
           <SubMenuItem>
             <SubMenuItemLink>Categorías</SubMenuItemLink>

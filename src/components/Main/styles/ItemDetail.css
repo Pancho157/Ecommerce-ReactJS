@@ -11,6 +11,8 @@
   row-gap: 30px;
   align-items: center;
   justify-content: center;
+  overflow: auto;
+  padding: 30px 50px;
 }
 
 .rightGroupElements {

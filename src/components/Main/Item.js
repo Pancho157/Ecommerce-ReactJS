@@ -1,3 +1,6 @@
+// Este archivo se utiliza para renderizar las cards mediante las props que se le pasen
+
+
 import React from "react";
 
 // Components

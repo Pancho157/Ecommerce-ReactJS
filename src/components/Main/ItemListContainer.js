@@ -1,3 +1,5 @@
+/* El objetivo de este archivo es el de contener todas las cards y actuar como una etiqueta <main></main> en las pages que muestren cards sin filtrarlas */
+
 // Components
 import ItemList from "./ItemList";
 
@@ -6,7 +8,7 @@ import "./styles/ItemListContainer.css";
 
 export default function Main(props) {
   return (
-    <main className="main">
+    <main className="homePage-main">
       <h2 className="main-tittle">{props.children}</h2>
 
       <ItemList />

@@ -1,4 +1,8 @@
+// Este archivo simula una llamada a una API, recorre los productos (array de objetos) y pasa la información al componente <Item />, el cual los renderiza
+// También actua como un contenedor de segundo nivel de las Cards (El de primer nivel es el <main></main>)
+
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // Components
 import { mainPageProducts } from "../../data/data";
@@ -41,7 +45,7 @@ const ItemList = () => {
     <section className="cards-container">
       {products.map((product) => {
         return (
-          <div key={product.id} onClick={ItemDetailContainer}>
+          <Link to={`/${product.category}/${product.id}`} onClick={ItemDetailContainer}>
             {/* Cuando se haga click sobre el producto va a llamar a la función que muestra el detalle del mismo */}
             <Item
               id={product.id}
@@ -53,7 +57,7 @@ const ItemList = () => {
               stock={product.stock}
               description={product.description}
             />
-          </div>
+          </Link>
         );
       })}
     </section>

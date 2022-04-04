@@ -1,7 +1,4 @@
-// La idea es del ejemplo que pasó en la clase, me gustó la manera de organizarlo, ya que es bastante intuitivo de manejar todo  después, por lo que lo apliqué a mi proyecto
-// Lo pienso especialmente útil para modificar los productos sin tener que entrar a varios archivos diferentes (Cosa que estaba haciendo antes)
-
-// Me gustaría saber también si es posible de ahora en adelante utilizar mocky.io para colocar los productos dentro y luego colocarlos directamente desde esa API (pero seguir teniendo este archivo como BBDD de back up)
+// Este archivo existe para simular los datos que devuelve una API, por lo que todo lo que se considere "información" se almacenará en este archivo
 
 export const mainPageProducts = [
   {
@@ -9,6 +6,21 @@ export const mainPageProducts = [
     // imgUrl: "multimetroDigital.jpg",
     imgUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU",
+
+    //Estoy experimentando para agregar varias imagenes cuando las haya, pero me da error cuando las monto (si la página estaba cargada me aplica bien los cambios
+    // images: [
+    //   {
+    //     imgUrl:
+    //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
+    //   },
+    //   {
+    //     imgUrl:
+    //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
+    //   },{
+    //     imgUrl:
+    //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
+    //   },
+    // ],
     title: "Multímetro Digital",
     brand: "Generico",
     model: "M890G",
@@ -118,20 +130,3 @@ export const mainPageProducts = [
     category: "Herramientas",
   },
 ];
-
-// Este objeto se utiliza para mostrar el funcionamiento de ItemDetailContainer e ItemDetail, para la siguiente entrega será eliminado y automatizada la busqueda con el array de objetos
-export const mockProduct = {
-  id: 1,
-  // imgUrl: "multimetroDigital.jpg",
-  imgUrl:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU",
-  title: "Multímetro Digital",
-  brand: "Generico",
-  model: "M890G",
-  size: "Estandar",
-  price: 1800,
-  stock: "20",
-  description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-  category: "Herramientas",
-};
