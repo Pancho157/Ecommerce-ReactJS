@@ -5,14 +5,17 @@ import "./Footer.css";
 
 // Components
 import { AiTwotoneSliders } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <h3 className="brand-container">
-        <AiTwotoneSliders size={"1.5em"} />
-        Dígito Electrónico
-      </h3>
+      <Link to={`/`}>
+        <h3 className="brand-container">
+          <AiTwotoneSliders size={"1.5em"} />
+          Dígito Electrónico
+        </h3>
+      </Link>
 
       <hr className="footer-line" />
 

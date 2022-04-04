@@ -1,12 +1,10 @@
+// Este archivo muestra un contador con la cantidad que el usuario quiere agregar al carrito de un cierto elemento
+// También renderiza y da la función al botón para llevar al artículo al carrito
+
 import { useState } from "react";
 
 // Styles
 import "./styles/ItemCount.css"
-
-// Este archivo muestra un contador con la cantidad que el usuario quiere agregar al carrito de un cierto elemento
-// También renderiza el botón para llevar al artículo al carrito
-
-// Los estilos para los botones son asignados por la función que lo llama, ya que cambia dependiendo de donde se encuentre
 
 const ItemCount = ({ stock }) => {
   const [userinput, setUserInput] = useState(1);
@@ -24,6 +22,13 @@ const ItemCount = ({ stock }) => {
     }
   };
 
+  const addToCart = (e) => {
+    e.stopPropagation()
+    console.log("stopPropagation")
+    // desarrollar la función para gregarlo al carrito acá (por alguna razón no me funciona)
+    // TODO: la idea sería agregar/eliminar los elementos de un array perteneciente al carrito y renderizarlos
+  }
+
   return (
     <>
       <div className={"count-container"}>
@@ -34,7 +39,7 @@ const ItemCount = ({ stock }) => {
         <button onClick={onAdd}>+</button>
       </div>
 
-      <button className={"card-buy"}>Agregar al carrito</button>
+      <button className={"card-buy"} onClick={addToCart}>Agregar al carrito</button>
     </>
   );
 };

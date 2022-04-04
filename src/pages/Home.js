@@ -6,7 +6,6 @@ function Home() {
   return (
     <>
       <Main>Nuestros Productos</Main>
-      {/* <ItemDetailContainer /> */}
     </>
   );
 }

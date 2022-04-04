@@ -8,10 +8,11 @@ import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
-import DetailPage from "./pages/FilteredItems";
-import ItemPage from "./pages/ItemPage";
-import ItemSell from "./pages/ItemSell";
-import SellList from "./pages/SellList";
+import DetailPage from "./pages/ItemPage";
+import CategoryPage from "./pages/CategoryPage";
+import SearchResultsPage from "./pages/FilteredItems";
+import SellingItemInfo from "./pages/ItemSell";
+import SellingItemsList from "./pages/SellList";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
 import Footer from "./components/Footer/Footer";
@@ -22,17 +23,16 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/carrito" element={<Cart />} /> */}
+          <Route path="/carrito" element={<Cart />} />
           <Route path="/contacto" element={<Contact />} />
           <Route path="/:categoty/:id" element={<DetailPage />} />
-          <Route path="/:categories" element={<Home />} />
-          {/* <Route path="/detalle" element={<ItemPage />} /> */}
-          {/* <Route path="/venta/item" element={<ItemSell />} /> */}
-          {/* <Route path="/ventas/items" element={<SellList />} /> */}
-          {/* <Route path="/iniciarSesion" element={<SingIn />} /> */}
-e
+          <Route path="/:categories" element={<CategoryPage />} />
+          <Route path="/resultado" element={<SearchResultsPage />} />
+          <Route path="/ventas/item" element={<SellingItemInfo />} />
+          <Route path="/ventas/allItems" element={<SellingItemsList />} />
+          <Route path="/iniciarSesion" element={<SingIn />} />
           {/* Todo lo que no esté definido arriba va a entrar a la siguiente ruta */}
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>

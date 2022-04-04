@@ -2,7 +2,7 @@
 // También actua como un contenedor de segundo nivel de las Cards (El de primer nivel es el <main></main>)
 
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Components
 import { mainPageProducts } from "../../data/data";
@@ -13,7 +13,6 @@ import ItemDetailContainer from "./ItemDetailContainer";
 import "./styles/ItemList.css";
 
 const ItemList = () => {
-  const {category} = useParams();
   const [products, setProducts] = useState([]);
   // En products se almacenan los datos de la API (en este caso vienen del archivo data.js)
 
