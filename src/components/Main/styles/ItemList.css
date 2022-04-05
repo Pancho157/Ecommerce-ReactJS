@@ -1,8 +1,8 @@
 .cards-container {
-  width: 90%;
+  width: auto;
+  max-width: 90%;
   height: 369px;
   background-color: #fff;
-  margin-left: 5%;
   padding: 15px 15px;
   border-radius: 15px;
   display: flex;

@@ -12,6 +12,7 @@
   background-image: url("../../../images/mainBackground.webp");
   float: right;
   display: flex;
+  align-items: center;
   flex-direction: column;
   row-gap: 40px;
   position: absolute;
