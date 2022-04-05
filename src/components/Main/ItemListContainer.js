@@ -6,7 +6,7 @@ import ItemList from "./ItemList";
 // Styles
 import "./styles/ItemListContainer.css";
 
-export default function Main(props) {
+export default function ItemListContainer(props) {
   return (
     <main className="homePage-main">
       <h2 className="main-tittle">{props.children}</h2>

@@ -128,7 +128,7 @@ export const MenuItem = styled.li`
   }
 `;
 
-export const MenuItemLink = styled.a`
+export const MenuItemLink = styled.div`
   text-decoration: none;
   color: #ebc08b;
   padding-top: 10px;
@@ -224,7 +224,7 @@ export const SubMenuItem = styled.li`
 }
 `;
 
-export const SubMenuItemLink = styled.a`
+export const SubMenuItemLink = styled.div`
   text-decoration: none;
   color: #fff;
 

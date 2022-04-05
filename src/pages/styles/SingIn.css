@@ -4,6 +4,7 @@
   background-image: url("../../images/mainBackground.webp");
   padding: 60px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -64,6 +65,12 @@
   cursor: pointer;
 }
 
-.singIng--form_button:onClick {
+.singIng--form_button:onclick {
   box-shadow: 2px 2px 2px black inset;
+}
+
+@media (max-width: 470px) {
+  .singIng--form_label {
+    display: none;
+  }
 }

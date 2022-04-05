@@ -29,7 +29,7 @@ export const mainPageProducts = [
     stock: "20",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Herramientas",
+    category: "herramientas",
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ export const mainPageProducts = [
     stock: "20",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Consumibles",
+    category: "consumibles",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const mainPageProducts = [
     stock: "20",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Herramientas",
+    category: "herramientas",
   },
   {
     id: 4,
@@ -71,7 +71,7 @@ export const mainPageProducts = [
     stock: "20",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Herramientas",
+    category: "herramientas",
   },
   {
     id: 5,
@@ -85,7 +85,7 @@ export const mainPageProducts = [
     stock: "11",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Herramientas",
+    category: "herramientas",
   },
   {
     id: 6,
@@ -99,7 +99,7 @@ export const mainPageProducts = [
     stock: "3",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Herramientas",
+    category: "herramientas",
   },
   {
     id: 7,
@@ -113,7 +113,7 @@ export const mainPageProducts = [
     stock: "1",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Herramientas",
+    category: "herramientas",
   },
   {
     id: 8,
@@ -127,6 +127,6 @@ export const mainPageProducts = [
     stock: "12",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
-    category: "Herramientas",
+    category: "herramientas",
   },
 ];

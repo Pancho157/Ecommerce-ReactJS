@@ -1,3 +1,6 @@
+// Observación: Hay styled elements que poseen en su nombre la palabra link, esto se debe a que funcionaban como elementos <a></a> antes de que apareciera el <Link></Link> de React Router
+// Cambié todos los <a></a> viejos por <div></div>, ya que estos agregan estilos al programa
+
 import React, { useState } from "react";
 
 // Components
@@ -100,13 +103,13 @@ const NavBar = () => {
             </SubMenuItemToMenuItem>
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <Link to={`/Herramientas`}>
+              <Link category={"herramientas"} to={`/${category}`}>
                 <SubMenuItemLink>Herramientas</SubMenuItemLink>
               </Link>
             </SubMenuItemToMenuItem>
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <Link to={`/Consumibles`}>
+              <Link category={"consumibles"} to={`/${category}`}>
                 <SubMenuItemLink>Consumibles</SubMenuItemLink>
               </Link>
             </SubMenuItemToMenuItem>
@@ -139,12 +142,12 @@ const NavBar = () => {
             </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <Link to={`/Herramientas`}>
+            <Link category={"herramientas"} to={`/${category}`}>
               <SubMenuItemLink>Herramientas</SubMenuItemLink>
             </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <Link to={`/Consumibles`}>
+            <Link category={"consumibles"} to={`/${category}`}>
               <SubMenuItemLink>Consumibles</SubMenuItemLink>
             </Link>
           </SubMenuItem>
