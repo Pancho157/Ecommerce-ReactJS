@@ -103,13 +103,13 @@ const NavBar = () => {
             </SubMenuItemToMenuItem>
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <Link category={"herramientas"} to={`/${category}`}>
+              <Link to={`/herramientas`}>
                 <SubMenuItemLink>Herramientas</SubMenuItemLink>
               </Link>
             </SubMenuItemToMenuItem>
 
             <SubMenuItemToMenuItem onClick={() => changeClick()}>
-              <Link category={"consumibles"} to={`/${category}`}>
+              <Link to={`/consumibles`}>
                 <SubMenuItemLink>Consumibles</SubMenuItemLink>
               </Link>
             </SubMenuItemToMenuItem>
@@ -142,12 +142,12 @@ const NavBar = () => {
             </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <Link category={"herramientas"} to={`/${category}`}>
+            <Link to={`/herramientas`}>
               <SubMenuItemLink>Herramientas</SubMenuItemLink>
             </Link>
           </SubMenuItem>
           <SubMenuItem>
-            <Link category={"consumibles"} to={`/${category}`}>
+            <Link to={`/consumibles`}>
               <SubMenuItemLink>Consumibles</SubMenuItemLink>
             </Link>
           </SubMenuItem>
