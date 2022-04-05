@@ -1,6 +1,6 @@
 .cards-container {
   width: 90%;
-  height: 365px;
+  height: 369px;
   background-color: #fff;
   margin-left: 5%;
   padding: 15px 15px;
@@ -11,6 +11,7 @@
   column-gap: 20px;
   row-gap: 20px;
   overflow-x: auto;
+  border: 2px solid #ebc08b;
 }
 
 @media screen and (max-width: 624px) {

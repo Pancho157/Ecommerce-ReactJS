@@ -1,4 +1,4 @@
-// En el caso del home no es muy complejo debido a que el navbar y el footer se mantienen siempre renderizados
+// El destino de la presente página es el de mostrar al usuario cuando hay un error en la URL
 
 import "./inProgress.css"
 

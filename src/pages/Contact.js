@@ -1,4 +1,4 @@
-// En el caso del home no es muy complejo debido a que el navbar y el footer se mantienen siempre renderizados
+// Esta página está destinada a poseer un formulario para reportar errores y posibles mejoras
 
 import "./inProgress.css"
 function Contact() {

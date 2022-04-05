@@ -1,4 +1,5 @@
-// En el caso del home no es muy complejo debido a que el navbar y el footer se mantienen siempre renderizados
+// El objetivo de esta página es el de mostrar la lista de items que un usuario tiene a la venta y/o agregar productos a la venta
+// Solo se podrá ingresar a esta parte luego de iniciar sesión
 
 import "./inProgress.css"
 

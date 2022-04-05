@@ -1,4 +1,4 @@
-// En el caso del home no es muy complejo debido a que el navbar y el footer se mantienen siempre renderizados
+// Este archivo tiene el fin de traer los elementos que se encuentran incluidos en el array destinado al carrito y brindar las funcionalidades para la renderización del archivo hijo
 
 import "./inProgress.css"
 function Cart() {

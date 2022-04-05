@@ -1,4 +1,4 @@
-// En el caso del home no es muy complejo debido a que el navbar y el footer se mantienen siempre renderizados
+// Esta página tiene le destino de mostrar los elementos que se tengan como respuesta de una búsqueda en la barra de busqueda
 
 import "./inProgress.css"
 

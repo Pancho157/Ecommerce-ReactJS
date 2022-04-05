@@ -1,4 +1,5 @@
-// En el caso del home no es muy complejo debido a que el navbar y el footer se mantienen siempre renderizados
+// Está página tiene el fin de mostrar la información (y modificarla) de un item que se ponga a la venta
+// Deberá mostrarse solamente cuando se posea una cuenta creada
 
 import "./inProgress.css"
 
