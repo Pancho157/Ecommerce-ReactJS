@@ -67,12 +67,13 @@ a {
   position: absolute;
   top: 50px;
   width: 300px;
+  max-height: 500px;
   transform: translateX(-45%);
   background-color: var(--bg);
   border: var(--border);
   border-radius: var(--border-radius);
   padding: 1rem;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .menu-item {
