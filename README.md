@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Tabla de contenidos
+1. [Objetivo de la entrega](#objetivo-de-la-entrega)
+2. [Aspectos a incluir](#aspectos-a-incluir)
+3. [GIF de la app](#gif)
+4. [Funcionamiento](#funcionamiento-general-de-la-aplicación)
+4. [Navegar dentro de la app](#como-navegar-dentro-de-la-app)
+5. [Tecnologías utilizadas](#tecnologías-utilizadas)
+6. [Installation](#instalación-de-la-app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Objetivo de la entrega
+***
+El estudiante deberá desarrollar la navegabilidad básica de la aplicación, demostrando que la app permite ver el catálogo, y navegar a un detalle
 
-In the project directory, you can run:
+## Aspectos a incluir
+***
+1. Rutas a configurar
 
-### `npm start`
+    * ‘/’ navega a <ItemListContainer />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    * ‘/category/:id’ <ItemListContainer />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    * ‘/item/:id’ navega a <ItemDetailContainer />
 
-### `npm test`
+2. Links a configurar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    * Clickear en el brand debe navegar a ‘/’
 
-### `npm run build`
+    * Clickear un Item.js debe navegar a /item/:id
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    * Clickear en una categoría del navbar debe navegar a /category/:categoryId
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para finalizar deberá integrar los parámetros de tus async-mocks para reaccionar a :itemId y :categoryId ¡utilizando efectos y los hooks de parámetros que vimos en clase! Si te encuentras en una categoría deberías poder detectar la navegación a otra categoría y volver a cargar los productos que correspondan a dicha categoría
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Gif
+***
+El error que presenta el gif se debe a que se inspeccionó la página para mostrar que la misma es responsive
+<img src="./src/images/paraElReadme/funcionalidadBasica.gif" width="900" />
 
-### `npm run eject`
+# Funcionamiento general de la aplicación
+***
+La documentación principal sobre el uso de la aplicación se encuentra dentro de la misma, ya que cada archivo se encuentra con un comentario al inicio informando la utilidad del mismo y su funcionalidad
+También el funcionamiento de los elementos relevantes dentro de cada archivo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Hago esto debido a que quiero generar la menor cantidad de documentación necesaria y hacer que el código se explique por si mismo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Como navegar dentro de la app
+La manera en la que generé los archivos de la app es la siguiente
+Las carpetas NavBar, Footer y Main poseen dentro todos los archivos js y una carpeta donde se guardan los estilos de los mismos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Componentes (carpeta)
+    * Footer (Solo tiene los archivos del footer y se renderiza una sola vez)
+    * Main (Dentro van todos los archivos referentes a el cuerpo principal de las páginas)
+    * NavBar (En este fue donde utilicé los styled components para experimentar, pero no fui capaz de utilizarlo en otras funcionalidades debido a que no se como generar funciones dentro de los mismos)
+* data (Dentro se ubica el archivo donde guardo los arrays que simulan las consultas a APIs)
+* images (creo que se explica solo jajaja)
+* pages (Es donde se encuentran los diferentes archivos padre de mayor nivel luego de App.js y "renderizan" las páginas)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+El archivo App.js es el que se utiliza para generar las rutas que se utilizan en los Links
 
-## Learn More
+# Tecnologías utilizadas
+***
+Lista de tecnologías utilizadas en el proyecto:
+* [React](https://es.reactjs.org)
+* [React-Router-Dom](https://v5.reactrouter.com/web/guides/quick-start)
+* [Styled-Components](https://styled-components.com)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Instalación de la app
+***
+Para clonar el repositorio desde la terminal de git:
+```
+$ git clone https://github.com/Pancho157/Ecommerce-ReactJS.git
+$ cd ../path/to/the/file
+$ npm install
+$ npm start
+```

@@ -1,3 +1,4 @@
+// Este archivo se renderiza una sola vez y se utiliza en todas las páginas (al igual que el nav)
 import React from "react";
 
 // Styles

@@ -1,3 +1,5 @@
+// Este archivo actúa como landing page
+
 // Components
 import ItemListContainer from "..//components/Main/ItemListContainer";
 

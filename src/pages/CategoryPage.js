@@ -1,7 +1,4 @@
-// import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import { mainPageProducts } from "../data/data";
-// import { Link } from "react-router-dom";
+// Esta página filtra los objetos según la categoría que obtiene mediante useParams y los renderiza
 
 import { useParams } from "react-router-dom";
 import ItemListContainer from "../components/Main/ItemListContainer";

@@ -1,4 +1,4 @@
-// El objetivo de este archivo es el poder iniciar seción
+// El objetivo de este archivo es el poder iniciar seción y posteriormente guardarlo en un session storage
 
 import React, { useState } from "react";
 
@@ -48,8 +48,6 @@ function SingIn() {
 
   return (
     <>
-      {/* <h1 className="inProgress">Esta página se encuentra en desarrollo</h1> */}
-
       <main className="singIn--main">
         <section>
           <form className="singIng--form_container">
