@@ -31,14 +31,9 @@ function ItemDetail() {
 
   const addToCart = (e, usedOnce) => {
     e.stopPropagation();
-    console.log("stopPropagation");
     setButtonText("Visitar carrito");
-
-    if (contador != 1) {
-      navigate(`/carrito`);
-      console.log("ir al carrito");
-    }
     setContador(contador + 1);
+    // Utilicé un contador debido a que no logré hacerlo con una variable booleana (no me la tomaba cuando la quería cambiar dentro de la función)
   };
 
   // Renderiza la los detalles de un item en particular que recibe como prop
@@ -62,6 +57,7 @@ function ItemDetail() {
             <p className="price">Precio: {productData.price}</p>
             <p className="stock">Stock actual: {productData.stock}</p>
             <div className="contador">
+              {/* Dependiendo del estado del contador (exclusivo para esto) se renderizará el ItemCount o el botón que redirige al detalle del carrito */}
               {contador === 1 ? (
                 <ItemCount
                   stock={productData.stock}
