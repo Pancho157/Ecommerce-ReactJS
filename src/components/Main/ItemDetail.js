@@ -1,7 +1,7 @@
 // Este archivo recibe los parametros un ID y categoría mediante useParams(), luego reccorre los productos y busca al/los (aunque solo debería haber uno) que cohincidan con los parametros enviados mediante la URL y lo renderiza
 
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { mainPageProducts } from "../../data/data";
 
 // Componentes
@@ -11,7 +11,6 @@ import ItemCount from "./ItemCount";
 import "./styles/ItemDetail.css";
 
 function ItemDetail() {
-  const navigate = useNavigate();
   const { id } = useParams();
   const [productData, setProductData] = useState([]);
   const [buttonText, setButtonText] = useState("Agregar al carrito");
