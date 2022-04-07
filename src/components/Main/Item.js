@@ -36,7 +36,7 @@ const Item = ({ id, imgUrl, title, brand, model, price, stock }) => {
       <p>Modelo: {model}</p>
       <p>Precio: $ {price}</p>
       <p>Stock actual: {stock}</p>
-      <ItemCount stock={stock}/>
+      <ItemCount stock={stock} buttonText={"Agregar al carrito"}/>
     </article>
   );
 };

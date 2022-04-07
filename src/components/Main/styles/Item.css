@@ -6,6 +6,7 @@
   padding: 10px;
   border: 2px solid #ebc08b;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .card-image {

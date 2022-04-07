@@ -1,7 +1,7 @@
-// Este archivo recibe los parametros un ID y categoría mediante useParams(), luego reccorre los productos y busca al/los (aunque solo debería haber uno) que cohincidan con los parametros enviados mediante la URL y lo renderiza 
+// Este archivo recibe los parametros un ID y categoría mediante useParams(), luego reccorre los productos y busca al/los (aunque solo debería haber uno) que cohincidan con los parametros enviados mediante la URL y lo renderiza
 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { mainPageProducts } from "../../data/data";
 
 // Componentes
@@ -11,8 +11,11 @@ import ItemCount from "./ItemCount";
 import "./styles/ItemDetail.css";
 
 function ItemDetail() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [productData, setProductData] = useState([]);
+  const [buttonText, setButtonText] = useState("Agregar al carrito");
+  const [contador, setContador] = useState(1);
 
   useEffect(() => {
     getProductByID(mainPageProducts, id);
@@ -24,6 +27,18 @@ function ItemDetail() {
         return setProductData(product);
       }
     });
+  };
+
+  const addToCart = (e, usedOnce) => {
+    e.stopPropagation();
+    console.log("stopPropagation");
+    setButtonText("Visitar carrito");
+
+    if (contador != 1) {
+      navigate(`/carrito`);
+      console.log("ir al carrito");
+    }
+    setContador(contador + 1);
   };
 
   // Renderiza la los detalles de un item en particular que recibe como prop
@@ -47,7 +62,15 @@ function ItemDetail() {
             <p className="price">Precio: {productData.price}</p>
             <p className="stock">Stock actual: {productData.stock}</p>
             <div className="contador">
-              <ItemCount stock={productData.stock} />
+              {contador === 1 ? (
+                <ItemCount
+                  stock={productData.stock}
+                  action={addToCart}
+                  buttonText={buttonText}
+                />
+              ) : (
+                <Link className="visitarCarrito" to={`/carrito`}>Visitar Carrito</Link>
+              )}
             </div>
           </section>
 

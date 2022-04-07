@@ -2,17 +2,17 @@
 // También actua como un contenedor de segundo nivel de las Cards (El de primer nivel es el <main></main>)
 
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // Components
 import { mainPageProducts } from "../../data/data";
 import Item from "./Item";
-import ItemDetailContainer from "./ItemDetailContainer";
 
 // Styles
 import "./styles/ItemList.css";
 
 const ItemList = () => {
+  const navigate = useNavigate();
   const { category } = useParams();
   const [products, setProducts] = useState([]);
 
@@ -50,17 +50,18 @@ const ItemList = () => {
     getApiProducts();
   }, [category]);
 
+  // Utilizo esta manera de navegar en vez de <Link> debido a que con <Link> no es posible utilizar el stopPropagation para agregar la funcionalidad del ItemCount
+  const changeToDetailPage = (category, id) => {
+    navigate(`/${category}/${id}`);
+  };
+
   // Llama a la función que almacena los datos en el array products, los recorre con el map y los renderiza con el <Item {props} />
   return (
     <section className="cards-container">
-
       {/* Recorre el resultado de array luego de pasar por el filtro (si es que pasa) y lo renderiza */}
       {products.map((product) => {
         return (
-          <Link
-            to={`/${product.category}/${product.id}`}
-            onClick={ItemDetailContainer}
-          >
+          <div onClick={() => {changeToDetailPage(product.category, product.id)}}>
             {/* Cuando se haga click sobre el producto va a llamar a la función que muestra el detalle del mismo */}
             <Item
               id={product.id}
@@ -72,7 +73,7 @@ const ItemList = () => {
               stock={product.stock}
               description={product.description}
             />
-          </Link>
+          </div>
         );
       })}
     </section>
