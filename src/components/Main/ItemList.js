@@ -15,6 +15,7 @@ const ItemList = () => {
   const navigate = useNavigate();
   const { category } = useParams();
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getProducts = new Promise((resolve, reject) => {
     // Trae los productos desde el archivo (data.js) mediante una promesa que se resuelve luego de 2 segundos
@@ -32,6 +33,8 @@ const ItemList = () => {
       category !== undefined
         ? filterProductsByCategory(mainPageProducts, category)
         : setProducts(result);
+
+      setLoading(false);
     } catch (error) {
       console.warn(error);
       alert("No podemos mostrar los productos en este momento");
@@ -61,7 +64,28 @@ const ItemList = () => {
       {/* Recorre el resultado de array luego de pasar por el filtro (si es que pasa) y lo renderiza */}
       {products.map((product) => {
         return (
-          <div onClick={() => {changeToDetailPage(product.category, product.id)}}>
+          <div
+            onClick={() => {
+              changeToDetailPage(product.category, product.id);
+            }}
+          >
+            {/* //  Todo: Ver por qué no funciona el loader
+                    Recordar cambiar el loading en la respuesta de la promesa y en el useState */}
+            {loading && (
+              <div>
+                <p>Cargando artículos</p>
+                <img
+                  className="loader-exterior"
+                  src="../../images/loader.jpg"
+                  alt="Loader"
+                />
+                <img
+                  className="loader-interior"
+                  src="../../images/loader.jpg"
+                  alt="Loader"
+                />
+              </div>
+            )}
             {/* Cuando se haga click sobre el producto va a llamar a la función que muestra el detalle del mismo */}
             <Item
               id={product.id}
