@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 // Components
 import CartWidget from "./CartWidget";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Styled Components
 import {
@@ -32,7 +32,6 @@ import { FaBars, FaTimes, FaSearch, FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineLocalOffer } from "react-icons/md";
 
 const NavBar = () => {
-  const {category} = useParams();
   const [click, setClick] = useState(false);
   const [show, showHide] = useState(true);
 
@@ -79,8 +78,8 @@ const NavBar = () => {
               </MenuItemLink>
             </MenuItem>
             <MenuItem onClick={() => changeClick()}>
-              <Link to={`/Offers`}> 
-              {/* // TODO: hacer que los productos tengan una categoría llamada Offers y hacer que se renderice en las cards */}
+              <Link to={`/Offers`}>
+                {/* // TODO: hacer que los productos tengan una categoría llamada Offers y hacer que se renderice en las cards */}
                 <MenuItemLink>
                   <MdOutlineLocalOffer />
                 </MenuItemLink>

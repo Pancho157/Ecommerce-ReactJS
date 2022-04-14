@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import './styles/CartWidget.css';
+import React, { useState, useContext } from "react";
+import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import "./styles/CartWidget.css";
+// import CartContext from '../../context/CartContext';
 
 function CartWidget(props) {
+  // const { cartProducts } = useContext(CartContext)
   return (
     <>
-    {/* la línea de debajo es la que renderiza el carrito en el NavBar */}
-      <NavItem icon={ <FaShoppingCart />} >
-
+      {/* la línea de debajo es la que renderiza el carrito en el NavBar */}
+      <NavItem icon={<FaShoppingCart />}>
         {/* El triangle y el DropdownMenu son lo que se renderiza una vez presionado el carrito */}
         <div className="triangle"></div>
         <DropdownMenu></DropdownMenu>
@@ -21,11 +23,25 @@ function DropdownMenu() {
   function DropdownItem(props) {
     return (
       // Estructura de los elementos que se encuentran dentro del DropdownMenu
-      <a href="#" className="menu-item">
-        <span className="icon-button"> {props.leftIcon} </span>
-        {props.children}
-        <span className="icon-right"> {props.rightIcon} </span>
-      </a>
+      <Link to={`/${props.category}/${props.id}`}>
+        <div className="dropdownItem-container">
+          <img
+            className="dropdownItem-img"
+            src={props.imgUrl}
+            alt={props.title}
+          />
+          <div className="dropdownItem-middleContainer">
+            <b className="dropdownItem-title">{props.title}</b>
+            <p className="dropdownItem-price">Precio: {props.price}</p>
+            <p className="dropdownItem-stock">Stock: {props.stock}</p>
+            <p className="dropdownItem-quantity">Cantidad: {props.quantity}</p>
+          </div>
+
+          <button className="dropdownItem-trashButton">
+            <FaTrashAlt />
+          </button>
+        </div>
+      </Link>
     );
   }
 
@@ -33,9 +49,17 @@ function DropdownMenu() {
     <>
       <div className="dropdown">
         {/* Los elementos de debajo son los que se meustran dentro del DropdownMenu que se despliega cuando se presiona el carrito */}
-        <DropdownItem rightIcon={">"}>Producto 1</DropdownItem>
-        <DropdownItem rightIcon={">"}>Producto 2</DropdownItem>
-        <DropdownItem rightIcon={">"}>Producto 3</DropdownItem>
+        <DropdownItem
+          imgUrl={
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
+          }
+          title={"Multímetro Digital"}
+          price={1800}
+          stock={"20"}
+          quantity={3}
+          category={"herramientas"}
+          id={1}
+        ></DropdownItem>
       </div>
     </>
   );
