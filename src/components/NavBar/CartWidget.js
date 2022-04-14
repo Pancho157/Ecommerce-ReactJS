@@ -60,6 +60,9 @@ function DropdownMenu() {
           category={"herramientas"}
           id={1}
         ></DropdownItem>
+
+        <div className="line"></div>
+        <button className="toCartButton">Ir al carrito</button>
       </div>
     </>
   );

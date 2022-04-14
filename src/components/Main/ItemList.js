@@ -1,7 +1,7 @@
 // Este archivo simula una llamada a una API, recorre los productos (array de objetos) y pasa la información al componente <Item />, el cual los renderiza
 // También actua como un contenedor de segundo nivel de las Cards (El de primer nivel es el <main></main>)
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 // Components
@@ -11,11 +11,14 @@ import Item from "./Item";
 // Styles
 import "./styles/ItemList.css";
 
+// Context
+import CartContext from "../../context/CartContext";
+
 const ItemList = () => {
   const navigate = useNavigate();
+  const { cartProducts, addProductToCart } = useContext(CartContext);
   const { category } = useParams();
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const getProducts = new Promise((resolve, reject) => {
     // Trae los productos desde el archivo (data.js) mediante una promesa que se resuelve luego de 2 segundos
@@ -33,8 +36,6 @@ const ItemList = () => {
       category !== undefined
         ? filterProductsByCategory(mainPageProducts, category)
         : setProducts(result);
-
-      setLoading(false);
     } catch (error) {
       console.warn(error);
       alert("No podemos mostrar los productos en este momento");
@@ -50,6 +51,7 @@ const ItemList = () => {
   };
 
   useEffect(() => {
+    console.log("cartProducts: ", cartProducts)
     getApiProducts();
   }, [category]);
 
@@ -65,27 +67,11 @@ const ItemList = () => {
       {products.map((product) => {
         return (
           <div
+            key={product.id}
             onClick={() => {
               changeToDetailPage(product.category, product.id);
             }}
           >
-            {/* //  Todo: Ver por qué no funciona el loader
-                    Recordar cambiar el loading en la respuesta de la promesa y en el useState */}
-            {loading && (
-              <div>
-                <p>Cargando artículos</p>
-                <img
-                  className="loader-exterior"
-                  src="../../images/loader.jpg"
-                  alt="Loader"
-                />
-                <img
-                  className="loader-interior"
-                  src="../../images/loader.jpg"
-                  alt="Loader"
-                />
-              </div>
-            )}
             {/* Cuando se haga click sobre el producto va a llamar a la función que muestra el detalle del mismo */}
             <Item
               id={product.id}

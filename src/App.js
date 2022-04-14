@@ -16,26 +16,32 @@ import SellingItemsList from "./pages/SellList";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
 import Footer from "./components/Footer/Footer";
+
+// Context
+import { CartProvider } from "./context/CartContext";
+
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/carrito" element={<Cart />} />
-          <Route path="/contacto" element={<Contact />} />
-          <Route path="/:categoty/:id" element={<DetailPage />} />
-          <Route path="/categorias/:category" element={<CategoryPage />} />
-          <Route path="/resultado" element={<SearchResultsPage />} />
-          <Route path="/ventas/item" element={<SellingItemInfo />} />
-          <Route path="/ventas/allItems" element={<SellingItemsList />} />
-          <Route path="/iniciarSesion" element={<SingIn />} />
-          {/* Todo lo que no esté definido arriba va a entrar a la siguiente ruta */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/carrito" element={<Cart />} />
+            <Route path="/contacto" element={<Contact />} />
+            <Route path="/:categoty/:id" element={<DetailPage />} />
+            <Route path="/categorias/:category" element={<CategoryPage />} />
+            <Route path="/resultado" element={<SearchResultsPage />} />
+            <Route path="/ventas/item" element={<SellingItemInfo />} />
+            <Route path="/ventas/allItems" element={<SellingItemsList />} />
+            <Route path="/iniciarSesion" element={<SingIn />} />
+            {/* Todo lo que no esté definido arriba va a entrar a la siguiente ruta */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 }

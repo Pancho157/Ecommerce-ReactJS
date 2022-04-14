@@ -1,38 +1,51 @@
 .count-container {
-    width: 65px;
-    height: 20px;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    top: 15px;
-    margin-left: 30px;
-  }
-  
-  .count-container > p {
-    width: 70px;
-    height: 20px;
-    color: rgb(134, 134, 134);
-    background-color: #fff;
-    border: black;
-    text-align: center;
-  }
-  
-  .count-container > button {
-    width: 30px;
-    height: 20px;
-    background-color: #49426c;
-    color: white;
-  }
-  
-  .card-buy {
-    width: 90px;
-    margin-left: 120px;
-    margin-top: 5px;
-    padding: 5px;
-    border-radius: 10px;
-    position: relative;
-    top: -15px;
-    border: 2px solid #ebc08b;
-    box-shadow: 5px 3px 1px #49426c;
-    cursor: pointer;
-  }
+  width: 65px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 15px;
+  margin-left: 30px;
+}
+
+.count-container > p {
+  width: 70px;
+  height: 20px;
+  color: rgb(134, 134, 134);
+  background-color: #fff;
+  border: black;
+  text-align: center;
+}
+
+.count-container > button {
+  width: 30px;
+  height: 20px;
+  background-color: #49426c;
+  color: white;
+}
+
+.card-buy {
+  width: 90px;
+  margin-left: 120px;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  position: relative;
+  top: -15px;
+  border: 2px solid #ebc08b;
+  box-shadow: 5px 3px 1px #49426c;
+  cursor: pointer;
+}
+
+.visitarCarrito {
+  text-align: center;
+  background-color: #fff;
+  width: 90px;
+  padding: 5px 10px;
+  margin-left: 34px;
+  border-radius: 10px;
+  border: 2px solid #ebc08b;
+  box-shadow: 5px 3px 1px #49426c;
+  position: relative;
+  top: 10px;
+}

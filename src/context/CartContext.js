@@ -6,33 +6,14 @@ const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
 
   const addProductToCart = (product) => {
-    let exist = cartProducts.find(
-      (cartProduct) => cartProduct.id === product.id
-    );
-    !exist && setCartProducts((cartProducts) => [...cartProducts, product]);
+    console.log("Producto a agregar al carrito: ", product);
+    
   };
 
-  const calculeTotalPrice = () => {
-    let total = 0;
-
-    cartProducts.map((cartProduct) => {
-      total = cartProduct.price + total;
-    });
-
-    return total;
-  };
-
-  const deleteProduct = (product) => {
-    setCartProducts(
-      cartProducts.filter((cartProduct) => cartProduct.id !== product.id)
-    );
-  };
-
+  // data establece los elementos que se van a exportar en el provider
   const data = {
     cartProducts,
     addProductToCart,
-    calculeTotalPrice,
-    deleteProduct,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

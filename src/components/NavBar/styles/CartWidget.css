@@ -92,7 +92,7 @@ a {
   border: 1px solid black;
 }
 
-.dropdownItem-middleContainer{
+.dropdownItem-middleContainer {
   display: flex;
   flex-direction: column;
   row-gap: 3px;
@@ -100,13 +100,31 @@ a {
 
 .dropdownItem-title,
 .dropdownItem-price,
-.dropdownItem-stock{
+.dropdownItem-stock {
   width: 200px;
 }
 
-.dropdownItem-trashButton{
+.dropdownItem-trashButton {
   height: 50px;
   width: 50px;
   color: white;
   background-color: #49426c;
+}
+
+.line {
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+.toCartButton {
+  border: 2px solid #ebc08b;
+  box-shadow: 5px 3px 1px #49426c;
+  cursor: pointer;
+  width: 90px;
+  margin-left: 75px !important;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  font-family: "Fira Code";
 }

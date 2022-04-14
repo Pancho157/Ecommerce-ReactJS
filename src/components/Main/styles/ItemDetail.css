@@ -104,18 +104,6 @@
   margin-top: 10px;
 }
 
-.visitarCarrito {
-  text-align: center;
-  width: 90px;
-  padding: 5px 10px;
-  margin-left: 34px;
-  border-radius: 10px;
-  border: 2px solid #ebc08b;
-  box-shadow: 5px 3px 1px #49426c;
-  position: relative;
-  top: 10px;
-}
-
 /* Sección de la descripción */
 .desc-section {
   background-color: #fff;
