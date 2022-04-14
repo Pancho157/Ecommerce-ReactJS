@@ -10,10 +10,9 @@ import "./styles/ItemCount.css";
 // Context
 import CartContext from "../../context/CartContext";
 
-const ItemCount = ({ stock }) => {
-  const { cartProducts, addProductToCart } = useContext(CartContext);
+const ItemCount = ({ stock, data }) => {
+  const { addProductToCart } = useContext(CartContext);
   const [userinput, setUserInput] = useState(1);
-
   const [buttonText, setButtonText] = useState("Agregar al carrito");
   const [contador, setContador] = useState(1);
 
@@ -32,11 +31,11 @@ const ItemCount = ({ stock }) => {
     }
   };
 
-  const addToCart = (e, usedOnce) => {
+  const addToCart = (e) => {
     e.stopPropagation();
     setButtonText("Visitar carrito");
+    addProductToCart(data);
     setContador(contador + 1);
-    addProductToCart();
     // Utilicé un contador debido a que no logré hacerlo con una variable booleana (no me la tomaba cuando la quería cambiar dentro de la función)
   };
 
@@ -57,7 +56,11 @@ const ItemCount = ({ stock }) => {
           </button>
         </>
       ) : (
-        <Link className="visitarCarrito" to={`/carrito`} onClick={(e) => e.stopPropagation()}>
+        <Link
+          className="visitarCarrito"
+          to={`/carrito`}
+          onClick={(e) => e.stopPropagation()}
+        >
           Visitar Carrito
         </Link>
       )}

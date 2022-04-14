@@ -1,8 +1,14 @@
 import React, { useState, useContext } from "react";
-import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
+// Iconos
+import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+
+// Styles
 import "./styles/CartWidget.css";
-// import CartContext from '../../context/CartContext';
+
+// Context
+import CartContext from "../../context/CartContext";
 
 function CartWidget(props) {
   // const { cartProducts } = useContext(CartContext)
@@ -20,10 +26,11 @@ function CartWidget(props) {
 }
 
 function DropdownMenu() {
+  const { cartProducts } = useContext(CartContext);
   function DropdownItem(props) {
     return (
       // Estructura de los elementos que se encuentran dentro del DropdownMenu
-      <Link to={`/${props.category}/${props.id}`}>
+      <Link to={`/${props.category}/${props.id}`} key={props.id}>
         <div className="dropdownItem-container">
           <img
             className="dropdownItem-img"
@@ -49,17 +56,22 @@ function DropdownMenu() {
     <>
       <div className="dropdown">
         {/* Los elementos de debajo son los que se meustran dentro del DropdownMenu que se despliega cuando se presiona el carrito */}
-        <DropdownItem
-          imgUrl={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
-          }
-          title={"Multímetro Digital"}
-          price={1800}
-          stock={"20"}
-          quantity={3}
-          category={"herramientas"}
-          id={1}
-        ></DropdownItem>
+        <h2>Carrito de compras</h2>
+        <div className="line"></div>
+
+        {cartProducts.map((cartProduct) => {
+          return (
+            <DropdownItem
+              imgUrl={cartProduct.imgUrl}
+              title={cartProduct.title}
+              price={cartProduct.price}
+              stock={cartProduct.stock}
+              quantity={cartProduct.quantity}
+              category={cartProduct.category}
+              id={cartProduct.id}
+            ></DropdownItem>
+          );
+        })}
 
         <div className="line"></div>
         <button className="toCartButton">Ir al carrito</button>

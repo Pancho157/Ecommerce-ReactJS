@@ -8,13 +8,8 @@ import ItemCount from "./ItemCount.js";
 // Styles
 import "./styles/Item.css";
 
-// Context
-import CartContext from "../../context/CartContext.js";
-
 const Item = ({ id, imgUrl, title, brand, model, price, stock }) => {
   // Todo: hacer que las imagenes se muestren de manera dinámica con archivos locales y sin estar en la carpeta public (seguir tratando con webpack)
-
-  const { cartProducts, addProductToCart } = useContext(CartContext);
 
   return (
     <article className="card" productid={id}>
@@ -31,7 +26,10 @@ const Item = ({ id, imgUrl, title, brand, model, price, stock }) => {
       <p>Modelo: {model}</p>
       <p>Precio: $ {price}</p>
       <p>Stock actual: {stock}</p>
-      <ItemCount stock={stock} buttonText={"Agregar al carrito"} action={addProductToCart} />
+      <ItemCount
+        stock={stock}
+        data={{id, imgUrl, title, brand, model, price, stock}}
+      />
     </article>
   );
 };

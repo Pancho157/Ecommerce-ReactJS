@@ -13,8 +13,6 @@ import "./styles/ItemDetail.css";
 function ItemDetail() {
   const { id } = useParams();
   const [productData, setProductData] = useState([]);
-  const [buttonText, setButtonText] = useState("Agregar al carrito");
-  const [contador, setContador] = useState(1);
 
   useEffect(() => {
     getProductByID(mainPageProducts, id);
@@ -26,13 +24,6 @@ function ItemDetail() {
         return setProductData(product);
       }
     });
-  };
-
-  const addToCart = (e, usedOnce) => {
-    e.stopPropagation();
-    setButtonText("Visitar carrito");
-    setContador(contador + 1);
-    // Utilicé un contador debido a que no logré hacerlo con una variable booleana (no me la tomaba cuando la quería cambiar dentro de la función)
   };
 
   // Renderiza la los detalles de un item en particular que recibe como prop
@@ -57,15 +48,10 @@ function ItemDetail() {
             <p className="stock">Stock actual: {productData.stock}</p>
             <div className="contador">
               {/* Dependiendo del estado del contador (exclusivo para esto) se renderizará el ItemCount o el botón que redirige al detalle del carrito */}
-              {contador === 1 ? (
                 <ItemCount
                   stock={productData.stock}
-                  action={addToCart}
-                  buttonText={buttonText}
+                  data={productData}
                 />
-              ) : (
-                <Link className="visitarCarrito" to={`/carrito`}>Visitar Carrito</Link>
-              )}
             </div>
           </section>
 

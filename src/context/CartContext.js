@@ -7,7 +7,9 @@ const CartProvider = ({ children }) => {
 
   const addProductToCart = (product) => {
     console.log("Producto a agregar al carrito: ", product);
-    
+
+    setCartProducts((cartProducts) => [...cartProducts, product]);
+    console.log("productos en el carrito: ", cartProducts);
   };
 
   // data establece los elementos que se van a exportar en el provider
