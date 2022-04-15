@@ -32,11 +32,11 @@ function ItemDetail() {
       {/* El main-container se utiliza para alinear las cosas */}
       <div className="main-container">
         <section className="img-section">
-          {/* {productData.images.map( (image) => {
+          {/* {/* {productData.images.map( (image) => {
             return <img src={image.imgUrl} alt={image.title} />
-          })} 
+          })}  */}
 
-          Estoy experimentando para agregar varias imagenes cuando las haya, pero me da error cuando las monto (si la página estaba cargada me aplica bien los cambios */}
+          {/* Estoy experimentando para agregar varias imagenes cuando las haya, pero me da error cuando las monto (si la página estaba cargada me aplica bien los cambios */} 
 
           <img src={productData.imgUrl} alt={productData.title} />
         </section>
@@ -48,10 +48,7 @@ function ItemDetail() {
             <p className="stock">Stock actual: {productData.stock}</p>
             <div className="contador">
               {/* Dependiendo del estado del contador (exclusivo para esto) se renderizará el ItemCount o el botón que redirige al detalle del carrito */}
-                <ItemCount
-                  stock={productData.stock}
-                  data={productData}
-                />
+              <ItemCount stock={productData.stock} data={productData} />
             </div>
           </section>
 

@@ -26,7 +26,7 @@ function CartWidget(props) {
 }
 
 function DropdownMenu() {
-  const { cartProducts } = useContext(CartContext);
+  const { cartProducts, deleteProductFromCart } = useContext(CartContext);
   function DropdownItem(props) {
     return (
       // Estructura de los elementos que se encuentran dentro del DropdownMenu
@@ -44,7 +44,10 @@ function DropdownMenu() {
             <p className="dropdownItem-quantity">Cantidad: {props.quantity}</p>
           </div>
 
-          <button className="dropdownItem-trashButton">
+          <button
+            className="dropdownItem-trashButton"
+            onClick={(e) => deleteProductFromCart(e, props.id)}
+          >
             <FaTrashAlt />
           </button>
         </div>
