@@ -11,7 +11,6 @@ import "./styles/CartWidget.css";
 import CartContext from "../../context/CartContext";
 
 function CartWidget(props) {
-  // const { cartProducts } = useContext(CartContext)
   return (
     <>
       {/* la línea de debajo es la que renderiza el carrito en el NavBar */}
@@ -77,7 +76,7 @@ function DropdownMenu() {
         })}
 
         <div className="line"></div>
-        <button className="toCartButton">Ir al carrito</button>
+        <Link className="toCartButton" to={`/carrito`}>Ir al carrito</Link>
       </div>
     </>
   );
