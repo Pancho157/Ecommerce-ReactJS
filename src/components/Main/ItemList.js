@@ -82,6 +82,7 @@ const ItemList = () => {
               price={product.price}
               stock={product.stock}
               description={product.description}
+              quantity={product.quantity}
             />
           </div>
         );
