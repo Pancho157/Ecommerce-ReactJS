@@ -1,9 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
+  const [modifiedArray, setModifiedArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const addProductToCart = (product) => {
@@ -22,6 +23,7 @@ const CartProvider = ({ children }) => {
         }
         // Coloca el nuevo array (ya modificado) como el array del carrito
         setCartProducts(modifiedArray);
+        totalToPay();
       });
     } else {
       // En caso de no existir otro artículo con el mismo id lo agrega al array del carrito
@@ -31,9 +33,25 @@ const CartProvider = ({ children }) => {
 
   const deleteProductFromCart = (product) => {
     // Establece en el array todos los productos que no tengan el id del producto que se pasó por prop
-    setCartProducts(
-      cartProducts.filter((cartProduct) => cartProduct.id !== product.id)
-    );
+    cartProducts.map((cartProduct) => {
+      if (cartProduct.id !== product.id) {
+        setModifiedArray(...modifiedArray, cartProduct);
+      }
+
+      setCartProducts(modifiedArray);
+      totalToPay();
+    });
+
+    totalToPay();
+  };
+
+  const totalToPay = () => {
+    // deja vacío el array para colocar los precios después
+    setCartProducts([]);
+    cartProducts.map((cartProduct) => {
+      const productFinalPrice = cartProduct.price * cartProduct.quantity;
+      setTotalPrice(totalPrice + productFinalPrice);
+    });
   };
 
   // data establece los elementos que se van a exportar en el provider

@@ -11,7 +11,8 @@ import "./styles/ItemCount.css";
 import CartContext from "../../context/CartContext";
 
 const ItemCount = ({ stock, data }) => {
-  const { addProductToCart } = useContext(CartContext);
+  const { addProductToCart, totalPrice, setTotalPrice } =
+    useContext(CartContext);
   const [userinput, setUserInput] = useState(1);
   const [contador, setContador] = useState(1);
 
