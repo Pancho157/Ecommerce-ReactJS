@@ -4,7 +4,6 @@ const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
-  const [modifiedArray, setModifiedArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const addProductToCart = (product) => {
@@ -12,42 +11,40 @@ const CartProvider = ({ children }) => {
     let exist = cartProducts.find(
       (cartProduct) => cartProduct.id === product.id
     );
+
+    // Si el producto existe en el array modifica su cantidad, y si no se encuentra lo agrega
     if (exist) {
-      const modifiedArray = cartProducts.filter((cartProduct) => {
-        // Mira cual es el producto que tiene la propiedad modificada y devuelve un array con la propiedad ya modificada
+      const modifiedArray = cartProducts.map((cartProduct) => {
         if (cartProduct.id === product.id) {
           return {
             ...cartProduct,
             quantity: cartProduct.quantity + product.quantity,
           };
         }
+        return cartProduct;
         // Coloca el nuevo array (ya modificado) como el array del carrito
-        setCartProducts(modifiedArray);
-        totalToPay();
       });
+      setCartProducts(modifiedArray);
     } else {
       // En caso de no existir otro artículo con el mismo id lo agrega al array del carrito
       setCartProducts((cartProducts) => [...cartProducts, product]);
     }
-  };
-
-  const deleteProductFromCart = (product) => {
-    // Establece en el array todos los productos que no tengan el id del producto que se pasó por prop
-    cartProducts.map((cartProduct) => {
-      if (cartProduct.id !== product.id) {
-        setModifiedArray(...modifiedArray, cartProduct);
-      }
-
-      setCartProducts(modifiedArray);
-      totalToPay();
-    });
 
     totalToPay();
   };
 
+  const deleteProductFromCart = (product) => {
+    const modifiedArray = cartProducts.filter(
+      (cartProduct) => cartProduct.id !== product.id
+    );
+
+    setCartProducts(modifiedArray);
+    totalToPay();
+  };
+
   const totalToPay = () => {
-    // deja vacío el array para colocar los precios después
-    setCartProducts([]);
+    setTotalPrice(0);
+
     cartProducts.map((cartProduct) => {
       const productFinalPrice = cartProduct.price * cartProduct.quantity;
       setTotalPrice(totalPrice + productFinalPrice);
