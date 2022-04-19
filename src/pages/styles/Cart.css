@@ -15,7 +15,7 @@
   max-width: 90%;
   line-height: 40px;
   text-align: center;
-  background-color: #ebc08b;
+  background-color: #fff;
   border: 3px solid #49426c;
   color: #49426c;
   border-radius: 20px;
@@ -28,7 +28,7 @@
   padding: 50px;
   line-height: 20px;
   text-align: center;
-  background-color: #ebc08b;
+  background-color: #fff;
   border: 3px solid #49426c;
   color: #49426c;
   border-radius: 20px;
@@ -75,6 +75,28 @@
   border-radius: 20px;
 }
 
+.cart-totalContainer {
+  width: 450px;
+  max-width: 90%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border: 3px solid #49426c;
+  border-radius: 20px;
+  white-space: normal;
+}
+
+.cart-buyButton {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #ebc08b;
+  border-radius: 20px;
+}
+
+/* Correcciones para la altura del contenedor principal debido a footer */
 @media (max-width: 917px) {
   .cart-itemsContainer {
     height: calc(100vh - 118px);

@@ -1,6 +1,6 @@
 // Este archivo tiene el fin de traer los elementos que se encuentran incluidos en el array destinado al carrito y brindar las funcionalidades para la renderización del archivo hijo
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../context/CartContext";
 
 // Styles
@@ -12,17 +12,37 @@ import { FaTrashAlt } from "react-icons/fa";
 // Context
 import { useContext } from "react";
 function Cart() {
-  const { cartProducts, deleteProductFromCart } = useContext(CartContext);
+  const { cartProducts, deleteProductFromCart, totalPrice } =
+    useContext(CartContext);
+
+  const navigate = useNavigate();
+
+  const deleteProduct = (e, cartProduct) => {
+    e.stopPropagation();
+    deleteProductFromCart(cartProduct.id);
+  };
+
+  const changeToDetailPage = (category, id) => {
+    navigate(`/${category}/${id}`);
+  };
+
   return (
     <>
       <div className="cart-itemsContainer">
         <h2 className="cart-mainTitle">Carrito de Compras</h2>
-        
-        <p className="cart-emptyMessage">Actualmente el carrito se encuentra vacío!!</p>
+
+        <p className="cart-emptyMessage">
+          {" "}
+          {cartProducts.lenght === 0
+            ? "Actualmente el carrito se encuentra vacío!"
+            : "Los productos que solicitó se encuentran debajo"}{" "}
+        </p>
         {cartProducts.map((cartProduct) => {
           return (
-            <Link
-              to={`/${cartProduct.category}/${cartProduct.id}`}
+            <article
+              onClick={() => {
+                changeToDetailPage(cartProduct.category, cartProduct.id);
+              }}
               key={cartProduct.id}
             >
               <div className="cart-container">
@@ -42,14 +62,21 @@ function Cart() {
 
                 <button
                   className="cart-trashButton"
-                  onClick={(e) => deleteProductFromCart(e, cartProduct.id)}
+                  onClick={(e) => deleteProduct(e, cartProduct)}
                 >
                   <FaTrashAlt />
                 </button>
               </div>
-            </Link>
+            </article>
           );
         })}
+
+        <div className="cart-totalContainer">
+          <h3 className="cart-total">
+            <b>Total:</b> $ {totalPrice}
+          </h3>
+          <button className="cart-buyButton">Comprar</button>
+        </div>
       </div>
     </>
   );

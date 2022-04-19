@@ -1,12 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addProductToCart = (product) => {
-    // Verifica que si existe el producto que se le pasó por props en el array 
+    // Verifica que si existe el producto que se le pasó por props en el array
     let exist = cartProducts.find(
       (cartProduct) => cartProduct.id === product.id
     );
@@ -17,19 +18,18 @@ const CartProvider = ({ children }) => {
           return {
             ...cartProduct,
             quantity: cartProduct.quantity + product.quantity,
-          }
+          };
         }
         // Coloca el nuevo array (ya modificado) como el array del carrito
         setCartProducts(modifiedArray);
-      })
+      });
     } else {
       // En caso de no existir otro artículo con el mismo id lo agrega al array del carrito
       setCartProducts((cartProducts) => [...cartProducts, product]);
     }
   };
 
-  const deleteProductFromCart = (e, product) => {
-    e.stopPropagation()
+  const deleteProductFromCart = (product) => {
     // Establece en el array todos los productos que no tengan el id del producto que se pasó por prop
     setCartProducts(
       cartProducts.filter((cartProduct) => cartProduct.id !== product.id)
@@ -41,6 +41,8 @@ const CartProvider = ({ children }) => {
     cartProducts,
     addProductToCart,
     deleteProductFromCart,
+    totalPrice,
+    setTotalPrice,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

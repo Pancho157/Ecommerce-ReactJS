@@ -1,6 +1,6 @@
 // Este archivo se utiliza para renderizar las cards mediante las props que se le pasen
 
-import React, { useContext } from "react";
+import React from "react";
 
 // Components
 import ItemCount from "./ItemCount.js";
