@@ -64,6 +64,7 @@ function DropdownMenu() {
         {cartProducts.map((cartProduct) => {
           return (
             <DropdownItem
+              key={cartProduct.id}
               imgUrl={cartProduct.imgUrl}
               title={cartProduct.title}
               price={cartProduct.price}
@@ -76,7 +77,9 @@ function DropdownMenu() {
         })}
 
         <div className="line"></div>
-        <Link className="toCartButton" to={`/carrito`}>Ir al carrito</Link>
+        <Link className="toCartButton" to={`/carrito`}>
+          Ir al carrito
+        </Link>
       </div>
     </>
   );
