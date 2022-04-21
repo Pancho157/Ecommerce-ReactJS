@@ -1,7 +1,7 @@
 // Este archivo tiene el fin de traer los elementos que se encuentran incluidos en el array destinado al carrito y brindar las funcionalidades para la renderización del archivo hijo
 
 import { Link, useNavigate } from "react-router-dom";
-import CartContext from "../context/CartContext";
+import CartContext from "../Context/CartContext";
 
 // Styles
 import "./styles/Cart.css";

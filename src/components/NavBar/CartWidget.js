@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Iconos
 import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
@@ -8,7 +8,7 @@ import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 import "./styles/CartWidget.css";
 
 // Context
-import CartContext from "../../context/CartContext";
+import CartContext from "../../Context/CartContext";
 
 function CartWidget(props) {
   return (
@@ -25,32 +25,47 @@ function CartWidget(props) {
 }
 
 function DropdownMenu() {
+  const navigate = useNavigate();
   const { cartProducts, deleteProductFromCart } = useContext(CartContext);
+
+  const changeToDetailPage = (category, id) => {
+    navigate(`/${category}/${id}`);
+  };
+
+  const goToProductDetail = (e, id) => {
+    e.stopPropagation();
+    deleteProductFromCart(e, id);
+  };
+
   function DropdownItem(props) {
     return (
       // Estructura de los elementos que se encuentran dentro del DropdownMenu
-      <Link to={`/${props.category}/${props.id}`} key={props.id}>
-        <div className="dropdownItem-container">
-          <img
-            className="dropdownItem-img"
-            src={props.imgUrl}
-            alt={props.title}
-          />
-          <div className="dropdownItem-middleContainer">
-            <b className="dropdownItem-title">{props.title}</b>
-            <p className="dropdownItem-price">Precio: {props.price}</p>
-            <p className="dropdownItem-stock">Stock: {props.stock}</p>
-            <p className="dropdownItem-quantity">Cantidad: {props.quantity}</p>
-          </div>
 
-          <button
-            className="dropdownItem-trashButton"
-            onClick={(e) => deleteProductFromCart(e, props.id)}
-          >
-            <FaTrashAlt />
-          </button>
+      <div
+        className="dropdownItem-container"
+        onClick={() => {
+          changeToDetailPage(props.category, props.id);
+        }}
+      >
+        <img
+          className="dropdownItem-img"
+          src={props.imgUrl}
+          alt={props.title}
+        />
+        <div className="dropdownItem-middleContainer">
+          <b className="dropdownItem-title">{props.title}</b>
+          <p className="dropdownItem-price">Precio: {props.price}</p>
+          <p className="dropdownItem-stock">Stock: {props.stock}</p>
+          <p className="dropdownItem-quantity">Cantidad: {props.quantity}</p>
         </div>
-      </Link>
+
+        <button
+          className="dropdownItem-trashButton"
+          onClick={(e) => goToProductDetail(e, props.id)}
+        >
+          <FaTrashAlt />
+        </button>
+      </div>
     );
   }
 
