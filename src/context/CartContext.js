@@ -7,7 +7,6 @@ const CartProvider = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const addProductToCart = (product) => {
-    // Verifica que si existe el producto que se le pasó por props en el array
     let exist = cartProducts.find(
       (cartProduct) => cartProduct.id === product.id
     );
@@ -22,11 +21,9 @@ const CartProvider = ({ children }) => {
           };
         }
         return cartProduct;
-        // Coloca el nuevo array (ya modificado) como el array del carrito
       });
       setCartProducts(modifiedArray);
     } else {
-      // En caso de no existir otro artículo con el mismo id lo agrega al array del carrito
       setCartProducts((cartProducts) => [...cartProducts, product]);
     }
 

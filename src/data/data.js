@@ -23,7 +23,7 @@ export const mainPageProducts = [
     title: "Alcohol Isopropilico",
     brand: "Comppit",
     model: "Generico",
-    price: 260,
+    price: 2600,
     stock: "20",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",

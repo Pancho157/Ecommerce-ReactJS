@@ -76,6 +76,10 @@ function DropdownMenu() {
         <h2>Carrito de compras</h2>
         <div className="line"></div>
 
+        {cartProducts.length === 0 && (
+          <p>El carrito de compras se encuentra vacío actualmente</p>
+        )}
+
         {cartProducts.map((cartProduct) => {
           return (
             <DropdownItem
