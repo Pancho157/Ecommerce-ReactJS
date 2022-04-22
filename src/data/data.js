@@ -3,24 +3,8 @@
 export const mainPageProducts = [
   {
     id: 1,
-    // imgUrl: "multimetroDigital.jpg",
     imgUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU",
-
-    //Estoy experimentando para agregar varias imagenes cuando las haya, pero me da error cuando las monto (si la página estaba cargada me aplica bien los cambios
-    // images: [
-    //   {
-    //     imgUrl:
-    //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
-    //   },
-    //   {
-    //     imgUrl:
-    //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
-    //   },{
-    //     imgUrl:
-    //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbOPHsYWMRCw-3V39pzDAeLMxPkC-zaLWLQ&usqp=CAU"
-    //   },
-    // ],
     title: "Multímetro Digital",
     brand: "Generico",
     model: "M890G",
@@ -34,7 +18,6 @@ export const mainPageProducts = [
   },
   {
     id: 2,
-    // imgUrl: "alcoholIsopropilico.jpg",
     imgUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfbtxs11bTrRqg2Hbz0rNCxOUBgHjCsYa0Ii9fyKeps-ZYvt0aYlKvDFVMoMJTiO6eiHE&usqp=CAU",
     title: "Alcohol Isopropilico",
@@ -49,7 +32,6 @@ export const mainPageProducts = [
   },
   {
     id: 3,
-    // imgUrl: "kitTresPinzas.jpg",
     imgUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_qwzOOVeOtG9Dw4L6KkWjI8eonPf9ROsRfQ&usqp=CAU",
     title: "Kit de 3 pinzas",
@@ -64,7 +46,6 @@ export const mainPageProducts = [
   },
   {
     id: 4,
-    // imgUrl: "kitHerramientasTruper.jpg",
     imgUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTswut3iyM7PrtEMn5pedsxNGslSI4WWvbo7w&usqp=CAU",
     title: "Kit herramientas",
@@ -79,7 +60,6 @@ export const mainPageProducts = [
   },
   {
     id: 5,
-    // imgUrl: "alicate.webp",
     imgUrl:
       "https://http2.mlstatic.com/D_NQ_NP_608355-MLA31019353217_062019-O.webp",
     title: "Alicate",
@@ -94,7 +74,6 @@ export const mainPageProducts = [
   },
   {
     id: 6,
-    // imgUrl: "fuenteRegulable.webp",
     imgUrl:
       "https://http2.mlstatic.com/D_NQ_NP_735620-MLA46441674844_062021-O.webp",
     title: "Fuente regulable",
@@ -109,7 +88,6 @@ export const mainPageProducts = [
   },
   {
     id: 7,
-    // imgUrl: "soldadoraSMD.webp",
     imgUrl:
       "https://http2.mlstatic.com/D_NQ_NP_660472-MLA44905196303_022021-O.webp",
     title: "Estación de soldado",
@@ -124,7 +102,6 @@ export const mainPageProducts = [
   },
   {
     id: 8,
-    // imgUrl: "lupaParaElectronica.webp",
     imgUrl:
       "https://http2.mlstatic.com/D_NQ_NP_608016-MLA42274821678_062020-O.webp",
     title: "Lupa para electrónica",
