@@ -21,6 +21,7 @@ import { addDoc, collection } from "firebase/firestore";
 function Cart() {
   const navigate = useNavigate();
   let [modalIsOpen, openModal, closeModal] = useModal(false);
+  const [successOrder, setSuccessOrder] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -39,6 +40,7 @@ function Cart() {
         quantity: cartProduct.quantity,
       };
     }),
+    date: new Date().toLocaleDateString(),
     total: totalPrice,
   });
 
@@ -71,63 +73,77 @@ function Cart() {
           quantity: cartProduct.quantity,
         };
       }),
+      date: new Date().toLocaleDateString(),
       total: totalPrice,
     });
 
     pushOrder();
-    closeModal()
+    closeModal();
   };
 
   const pushOrder = async () => {
     const orderFirebase = collection(database, "ordenesDeCompra");
     const orderDoc = await addDoc(orderFirebase, order);
+    setSuccessOrder(orderDoc.id);
   };
 
   // Renderizado
   return (
     <>
       <Modal isOpen={modalIsOpen} closeModal={closeModal}>
-        <div className="cart-modalContainer">
-          <h2 className="cart-buyFormTitle">Finalizar compra</h2>
+        {successOrder ? (
+          <div>
+            <h2 className="cart-buyFormTitle">Compra Exitosa!!</h2>
+            <p className="cart-buySuccess">
+              Felicidades!! La orden de compra se generó correctamente
+            </p>
+            <p className="cart-buySuccess">
+              Su número de orden es: {successOrder}
+            </p>
+          </div>
+        ) : (
+          <div className="cart-modalContainer">
+            <h2 className="cart-buyFormTitle">Finalizar compra</h2>
 
-          <form className="cart-form">
-            <input
-              type="text"
-              placeholder="Nombre"
-              className="cart-formInput"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="phone"
-              placeholder="Teléfono"
-              className="cart-formInput"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="mail"
-              placeholder="Email"
-              className="cart-formInput"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <form className="cart-form">
+              <input
+                type="text"
+                placeholder="Nombre"
+                className="cart-formInput"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="phone"
+                placeholder="Teléfono"
+                className="cart-formInput"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="mail"
+                placeholder="Email"
+                className="cart-formInput"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
 
-            <button
-              type="submit"
-              className="cart-formButton"
-              onClick={sendForm}
-            >
-              ENVIAR
-            </button>
-          </form>
-        </div>
+              <button
+                type="submit"
+                className="cart-formButton"
+                onClick={sendForm}
+              >
+                ENVIAR
+              </button>
+            </form>
+          </div>
+        )}
       </Modal>
 
       <div className="cart-itemsContainer">

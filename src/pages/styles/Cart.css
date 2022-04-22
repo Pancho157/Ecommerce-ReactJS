@@ -9,6 +9,11 @@
 .cart-buyFormTitle {
   margin-bottom: 15px;
   margin-top: 10px;
+  text-align: center;
+}
+
+.cart-buySuccess {
+  margin-top: 28px;
 }
 
 .cart-form {
