@@ -1,3 +1,46 @@
+/* Modal */
+.cart-modalContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-buyFormTitle {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.cart-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.cart-formInput {
+  width: 250px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 8px;
+  border: 3px solid black;
+  border-top: none;
+  border-right: none;
+}
+
+.cart-formButton {
+  padding: 10px 15px;
+  background-color: #ebc08b;
+  border-radius: 20px;
+  box-shadow: 1px 1px 1px black;
+}
+
+.cart-formButton:active {
+  box-shadow: 1px 1px 1px black inset;
+}
+
+/* Vista carrito */
 .cart-itemsContainer {
   background-image: url("../../images/mainBackground.webp");
   height: calc(100vh - 118px);

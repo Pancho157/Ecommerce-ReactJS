@@ -54,14 +54,30 @@ function Cart() {
     });
   };
 
+  const sendForm = (e) => {
+    e.preventDefault()
+    setOrder({
+      buyer: formData,
+      items: cartProducts.map((cartProduct) => {
+        return {
+          id: cartProduct.id,
+          title: cartProduct.title,
+          price: cartProduct.price,
+          quantity: cartProduct.quantity,
+        };
+      }),
+      total: totalPrice,
+    });
+  };
+
   // Renderizado
   return (
     <>
       <Modal isOpen={modalIsOpen} closeModal={closeModal}>
         <div className="cart-modalContainer">
-          <h2 className="cart-buyFormTitle">Formulario de compra</h2>
+          <h2 className="cart-buyFormTitle">Finalizar compra</h2>
 
-          <form>
+          <form className="cart-form">
             <input
               type="text"
               placeholder="Nombre"
@@ -71,7 +87,7 @@ function Cart() {
               onChange={handleChange}
             />
             <input
-              type="number"
+              type="phone"
               placeholder="Teléfono"
               className="cart-formInput"
               name="phone"
@@ -80,14 +96,18 @@ function Cart() {
             />
             <input
               type="mail"
-              placeholder="mail"
+              placeholder="Email"
               className="cart-formInput"
               name="email"
               value={formData.email}
               onChange={handleChange}
             />
 
-            <button type="submit" className="cart-formButton">
+            <button
+              type="submit"
+              className="cart-formButton"
+              onClick={sendForm}
+            >
               ENVIAR
             </button>
           </form>
