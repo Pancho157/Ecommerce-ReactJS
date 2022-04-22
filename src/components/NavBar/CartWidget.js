@@ -8,7 +8,7 @@ import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 import "./styles/CartWidget.css";
 
 // Context
-import CartContext from "../../Context/CartContext";
+import CartContext from "../../context/CartContext";
 
 function CartWidget(props) {
   return (

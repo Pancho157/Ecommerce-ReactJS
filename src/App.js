@@ -18,7 +18,7 @@ import SingIn from "./pages/SingIn";
 import Footer from "./components/Footer/Footer";
 
 // Context
-import { CartProvider } from "./Context/CartContext";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (

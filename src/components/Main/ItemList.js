@@ -12,7 +12,7 @@ import Item from "./Item";
 import "./styles/ItemList.css";
 
 // Context
-import CartContext from "../../Context/CartContext";
+import CartContext from "../../context/CartContext";
 
 const ItemList = () => {
   const navigate = useNavigate();

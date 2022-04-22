@@ -37,6 +37,7 @@ const CartProvider = ({ children }) => {
     const modifiedArray = cartProducts.filter(
       (cartProduct) => cartProduct.id !== product.id
     );
+    // setCartProducts(cartProducts.filter( cartProduct => cartProduct.id !== product.id))
 
     setCartProducts(modifiedArray);
     totalToPay();

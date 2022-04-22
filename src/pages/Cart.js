@@ -1,7 +1,7 @@
 // Este archivo tiene el fin de traer los elementos que se encuentran incluidos en el array destinado al carrito y brindar las funcionalidades para la renderización del archivo hijo
 
 import { Link, useNavigate } from "react-router-dom";
-import CartContext from "../Context/CartContext";
+import CartContext from "../context/CartContext";
 
 // Styles
 import "./styles/Cart.css";
@@ -10,13 +10,34 @@ import "./styles/Cart.css";
 import { FaTrashAlt } from "react-icons/fa";
 
 // Context
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useModal } from "../hooks/useModal";
+import Modal from "../components/Main/Modal";
 function Cart() {
+  const navigate = useNavigate();
+  const [modalIsOpen, openModal, closeModal] = useModal(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
   const { cartProducts, deleteProductFromCart, totalPrice } =
     useContext(CartContext);
 
-  const navigate = useNavigate();
+  const [order, setOrder] = useState({
+    buyer: formData,
+    items: cartProducts.map((cartProduct) => {
+      return {
+        id: cartProduct.id,
+        title: cartProduct.title,
+        price: cartProduct.price,
+        quantity: cartProduct.quantity,
+      };
+    }),
+    total: totalPrice,
+  });
 
+  // Funciones
   const deleteProduct = (e, cartProduct) => {
     e.stopPropagation();
     deleteProductFromCart(cartProduct.id);
@@ -26,8 +47,53 @@ function Cart() {
     navigate(`/${category}/${id}`);
   };
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Renderizado
   return (
     <>
+      <Modal isOpen={modalIsOpen} closeModal={closeModal}>
+        <div className="cart-modalContainer">
+          <h2 className="cart-buyFormTitle">Formulario de compra</h2>
+
+          <form>
+            <input
+              type="text"
+              placeholder="Nombre"
+              className="cart-formInput"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <input
+              type="number"
+              placeholder="Teléfono"
+              className="cart-formInput"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            <input
+              type="mail"
+              placeholder="mail"
+              className="cart-formInput"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+
+            <button type="submit" className="cart-formButton">
+              ENVIAR
+            </button>
+          </form>
+        </div>
+      </Modal>
+
       <div className="cart-itemsContainer">
         <h2 className="cart-mainTitle">Carrito de Compras</h2>
 
@@ -75,7 +141,9 @@ function Cart() {
           <h3 className="cart-total">
             <b>Total:</b> $ {totalPrice}
           </h3>
-          <button className="cart-buyButton">Comprar</button>
+          <button className="cart-buyButton" onClick={openModal}>
+            Comprar
+          </button>
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import "./styles/ItemCount.css";
 
 // Context
-import CartContext from "../../Context/CartContext";
+import CartContext from "../../context/CartContext";
 
 const ItemCount = ({ stock, data }) => {
   const { addProductToCart, totalPrice, setTotalPrice } =
