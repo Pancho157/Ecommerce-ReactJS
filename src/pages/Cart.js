@@ -1,6 +1,6 @@
 // Este archivo tiene el fin de traer los elementos que se encuentran incluidos en el array destinado al carrito y brindar las funcionalidades para la renderización del archivo hijo
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../context/CartContext";
 
 // Styles
@@ -13,9 +13,14 @@ import { FaTrashAlt } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { useModal } from "../hooks/useModal";
 import Modal from "../components/Main/Modal";
+
+// Firebase conextion
+import database from "../data/firebase";
+import { addDoc, collection } from "firebase/firestore";
+
 function Cart() {
   const navigate = useNavigate();
-  const [modalIsOpen, openModal, closeModal] = useModal(false);
+  let [modalIsOpen, openModal, closeModal] = useModal(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -55,7 +60,7 @@ function Cart() {
   };
 
   const sendForm = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setOrder({
       buyer: formData,
       items: cartProducts.map((cartProduct) => {
@@ -68,6 +73,14 @@ function Cart() {
       }),
       total: totalPrice,
     });
+
+    pushOrder();
+    closeModal()
+  };
+
+  const pushOrder = async () => {
+    const orderFirebase = collection(database, "ordenesDeCompra");
+    const orderDoc = await addDoc(orderFirebase, order);
   };
 
   // Renderizado
@@ -85,6 +98,7 @@ function Cart() {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              required
             />
             <input
               type="phone"
@@ -93,6 +107,7 @@ function Cart() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
+              required
             />
             <input
               type="mail"
@@ -101,6 +116,7 @@ function Cart() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
 
             <button
