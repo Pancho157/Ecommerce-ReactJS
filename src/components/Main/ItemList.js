@@ -51,7 +51,6 @@ const ItemList = () => {
   };
 
   useEffect(() => {
-    console.log("cartProducts: ", cartProducts)
     getApiProducts();
   }, [category]);
 

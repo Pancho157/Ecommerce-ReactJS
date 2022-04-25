@@ -10,7 +10,7 @@ import "./styles/Cart.css";
 import { FaTrashAlt } from "react-icons/fa";
 
 // Context
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useModal } from "../hooks/useModal";
 import Modal from "../components/Main/Modal";
 
@@ -21,6 +21,7 @@ import { addDoc, collection } from "firebase/firestore";
 function Cart() {
   const navigate = useNavigate();
   let [modalIsOpen, openModal, closeModal] = useModal(false);
+  let [cartIsEmpty, setCartIsEmpty] = useState(false);
   const [successOrder, setSuccessOrder] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -87,6 +88,12 @@ function Cart() {
     setSuccessOrder(orderDoc.id);
   };
 
+  useEffect(() => {
+    if (cartProducts[0] !== undefined) {
+      setCartIsEmpty(true);
+    }
+  }, []);
+
   // Renderizado
   return (
     <>
@@ -150,10 +157,9 @@ function Cart() {
         <h2 className="cart-mainTitle">Carrito de Compras</h2>
 
         <p className="cart-emptyMessage">
-          {" "}
-          {cartProducts.lenght === 0
+          {cartIsEmpty === false
             ? "Actualmente el carrito se encuentra vacío!"
-            : "Los productos que solicitó se encuentran debajo"}{" "}
+            : "Los productos agregados al carrito se encuentran debajo"}
         </p>
         {cartProducts.map((cartProduct) => {
           return (
