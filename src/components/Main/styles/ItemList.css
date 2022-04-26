@@ -15,8 +15,22 @@
   border: 2px solid #ebc08b;
 }
 
+.loader {
+  width: 50px;
+  animation: rotate 5s;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 @media screen and (max-width: 624px) {
   .cards-container {
-  max-height: calc(100vh - 290px);
+    max-height: calc(100vh - 290px);
   }
 }
