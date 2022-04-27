@@ -37,6 +37,11 @@ function DropdownMenu() {
     deleteProductFromCart(e, id);
   };
 
+  const deleteProduct = (e, cartProduct) => {
+    e.stopPropagation();
+    deleteProductFromCart(cartProduct);
+  };
+
   function DropdownItem(props) {
     return (
       // Estructura de los elementos que se encuentran dentro del DropdownMenu
@@ -63,7 +68,7 @@ function DropdownMenu() {
           className="dropdownItem-trashButton"
           onClick={(e) => goToProductDetail(e, props.id)}
         >
-          <FaTrashAlt />
+          <FaTrashAlt onClick={(e) => deleteProduct(e, props.id)}/>
         </button>
       </div>
     );

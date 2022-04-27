@@ -48,7 +48,7 @@ function Cart() {
   // Funciones
   const deleteProduct = (e, cartProduct) => {
     e.stopPropagation();
-    deleteProductFromCart(cartProduct.id);
+    deleteProductFromCart(cartProduct);
   };
 
   const changeToDetailPage = (category, id) => {
@@ -165,7 +165,7 @@ function Cart() {
           return (
             <article
               onClick={() => {
-                changeToDetailPage(cartProduct.category, cartProduct.id);
+                changeToDetailPage(cartProduct);
               }}
               key={cartProduct.id}
             >
@@ -186,7 +186,7 @@ function Cart() {
 
                 <button
                   className="cart-trashButton"
-                  onClick={(e) => deleteProduct(e, cartProduct)}
+                  onClick={(e) => deleteProduct(e, cartProduct.id)}
                 >
                   <FaTrashAlt />
                 </button>

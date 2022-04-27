@@ -114,6 +114,7 @@ a {
   width: 50px;
   color: white;
   background-color: #49426c;
+  border-radius: 25px;
 }
 
 .line {

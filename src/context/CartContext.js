@@ -31,22 +31,20 @@ const CartProvider = ({ children }) => {
   };
 
   const deleteProductFromCart = (product) => {
-    const modifiedArray = cartProducts.filter(
-      (cartProduct) => cartProduct.id !== product.id
+    setCartProducts(
+      cartProducts.filter((cartProduct) => cartProduct.id !== product)
     );
-    // setCartProducts(cartProducts.filter( cartProduct => cartProduct.id !== product.id))
 
-    setCartProducts(modifiedArray);
     totalToPay();
   };
 
   const totalToPay = () => {
     setTotalPrice(0);
 
-    cartProducts.map((cartProduct) => {
-      const productFinalPrice = cartProduct.price * cartProduct.quantity;
-      setTotalPrice(totalPrice + productFinalPrice);
-    });
+    // cartProducts.map((cartProduct) => {
+    //   const productFinalPrice = cartProduct.price * cartProduct.quantity;
+    //   setTotalPrice(totalPrice + productFinalPrice);
+    // });
   };
 
   // data establece los elementos que se van a exportar en el provider
