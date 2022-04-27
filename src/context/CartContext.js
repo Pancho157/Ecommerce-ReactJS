@@ -41,10 +41,11 @@ const CartProvider = ({ children }) => {
   const totalToPay = () => {
     setTotalPrice(0);
 
-    // cartProducts.map((cartProduct) => {
-    //   const productFinalPrice = cartProduct.price * cartProduct.quantity;
-    //   setTotalPrice(totalPrice + productFinalPrice);
-    // });
+    // TODO: Ver porqué no agrega el precio del último artículo agregado al carrito
+    cartProducts.map((cartProduct) => {
+      const productFinalPrice = cartProduct.price;
+      return setTotalPrice(totalPrice + productFinalPrice);
+    });
   };
 
   // data establece los elementos que se van a exportar en el provider
