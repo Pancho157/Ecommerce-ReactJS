@@ -10,7 +10,6 @@ const CartProvider = ({ children }) => {
     let exist = cartProducts.find(
       (cartProduct) => cartProduct.id === product.id
     );
-    console.log("El producto existe: ", exist)
 
     // Si el producto existe en el array modifica su cantidad, y si no se encuentra lo agrega
     if (exist) {

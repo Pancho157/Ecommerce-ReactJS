@@ -28,6 +28,7 @@ function DropdownMenu() {
   const navigate = useNavigate();
   const { cartProducts, deleteProductFromCart } = useContext(CartContext);
 
+  // TODO: Ver la función de debajo y la siguiente
   const changeToDetailPage = (category, id) => {
     navigate(`/${category}/${id}`);
   };
