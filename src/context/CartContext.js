@@ -10,9 +10,9 @@ const CartProvider = ({ children }) => {
     let exist = cartProducts.find(
       (cartProduct) => cartProduct.id === product.id
     );
+    console.log("El producto existe: ", exist)
 
     // Si el producto existe en el array modifica su cantidad, y si no se encuentra lo agrega
-    // TODO: Ver por qué no agrega la cantidad al array del carrito cuando se llama a la función
     if (exist) {
       const modifiedArray = cartProducts.map((cartProduct) => {
         if (cartProduct.id === product.id) {
@@ -43,7 +43,6 @@ const CartProvider = ({ children }) => {
     setTotalPrice(0);
 
     // TODO: Ver porqué no agrega el precio de todos los productos
-    // TODO: Ver el tema de la cantidad también
     cartProducts.map((cartProduct) => {
       return setTotalPrice(totalPrice + cartProduct.price);
     });

@@ -11,7 +11,7 @@ import "./styles/ItemCount.css";
 import CartContext from "../../context/CartContext";
 
 const ItemCount = ({ stock, data }) => {
-  const { addProductToCart, totalPrice, setTotalPrice } =
+  const { addProductToCart } =
     useContext(CartContext);
   const [userinput, setUserInput] = useState(1);
   const [contador, setContador] = useState(1);
@@ -19,7 +19,7 @@ const ItemCount = ({ stock, data }) => {
   // Funciones que agregan y restan al contador que indica la cantidad a agregar al carrito
   const onAdd = (e) => {
     e.stopPropagation();
-    if (userinput < stock) {
+    if (data.quantity < stock) {
       setUserInput(userinput + 1);
     }
   };
@@ -33,6 +33,7 @@ const ItemCount = ({ stock, data }) => {
 
   const addToCart = (e) => {
     e.stopPropagation();
+    data.quantity = data.quantity + userinput;
     addProductToCart(data);
     setContador(contador + 1);
     // Utilicé un contador debido a que no logré hacerlo con una variable booleana (no me la tomaba cuando la quería cambiar dentro de la función)
