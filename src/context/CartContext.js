@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+  // TODO: Ver como mantener el cartProducts siempre montado para poder eliminar los elementos en cualquier lado
   const [cartProducts, setCartProducts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
