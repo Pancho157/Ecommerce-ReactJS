@@ -92,20 +92,24 @@ $ npm install
 $ npm start
 ```
 
-
 # TODO:
+
 - Incluir la funcionalidad para inicio de sesión
-  - Modificar el como se obtienen los valores en los campos del formulario de registro e inicio de sesión (tienen las mismas variables y cambia ambos) 
+
+  - Ver por qué el find en el array de users da error (Uncaught TypeError: false is not a function
+    at Array.find (<anonymous>))
 
 - Desarrollar la página de ventas
-   - Automatizar el ingreso de productos con las ventas
-   - Verificar que se haya iniciado la sesión primero
-   - En caso de no haber iniciado sesión utilizar el Modal para iniciarla
-   - Hacer una BBDD para los usuarios
+
+  - Automatizar el ingreso de productos con las ventas
+  - Verificar que se haya iniciado la sesión primero
+  - En caso de no haber iniciado sesión utilizar el Modal para iniciarla
+  - Hacer una BBDD para los usuarios
 
 - Desarrollar la página de ofertas
-   - Agregar la propiedad de oferta en el array con todos los productos
-   - Qué el valor de la propiedad sea numérico para poder verificar si lo tiene o no, y filtrarlo de esa manera (aparte de calcular el precio final)
+
+  - Agregar la propiedad de oferta en el array con todos los productos
+  - Qué el valor de la propiedad sea numérico para poder verificar si lo tiene o no, y filtrarlo de esa manera (aparte de calcular el precio final)
 
 - Ver que el array del carrito se mantenga montado en las demás páginas aparte del Cart.js (para poder eliminar siempre los elementos)
 

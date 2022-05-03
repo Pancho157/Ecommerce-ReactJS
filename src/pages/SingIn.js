@@ -1,6 +1,7 @@
 // El objetivo de este archivo es el poder iniciar seción y posteriormente guardarlo en un session storage
 
 import React from "react";
+import md5 from "md5";
 
 // Styles
 import "./styles/SingIn.css";
@@ -9,6 +10,9 @@ import "./styles/SingIn.css";
 import { FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLockOpenAlt } from "react-icons/bi";
+
+// Usuarios
+import { users } from "../data/data";
 
 function SingIn() {
   const [userData, setUserData] = React.useState({
@@ -31,10 +35,25 @@ function SingIn() {
     setUserData(newUserData);
   }
 
-  const iniciarSesion = () => {
+  // TODO: Verificar por qué da error al dar al botón de iniciar sesión
+  // Error: SingIn.js:42 Uncaught TypeError: false is not a function at Array.find (<anonymous>)
+  const iniciarSesion = (e) => {
     // Acá se desarrollaría la lógica para dejar la sesión iniciada en el sessionStorage
-    console.log("Usuario: ", userData.user);
-    console.log("Contraseña: ", userData.contraseña);
+    e.preventDefault(); // para prevenir la recarga de la página
+    const foundUser = users.find(users.user === userData.user);
+
+    if (foundUser.user === undefined) {
+      alert("No se encontró el usuario especificado");
+    } else {
+      if (
+        foundUser.user == userData.user &&
+        foundUser.password == md5(userData.password)
+      ) {
+        // Acá se desarrolla la lógica del inicio de sesión para el session storage
+      } else {
+        alert("La contraseña o el usuario no cohincíden");
+      }
+    }
   };
 
   const registrarUsuario = () => {
