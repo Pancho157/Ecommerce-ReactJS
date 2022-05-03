@@ -1,6 +1,6 @@
 // El objetivo de este archivo es el poder iniciar seción y posteriormente guardarlo en un session storage
 
-import React, { useState } from "react";
+import React from "react";
 
 // Styles
 import "./styles/SingIn.css";
@@ -11,39 +11,37 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BiLockOpenAlt } from "react-icons/bi";
 
 function SingIn() {
-  const [usuario, setUsuario] = useState("Usuario");
-  const [email, setEmail] = useState("Email");
-  const [contraseña, setContraseña] = useState("Contraseña");
+  const [userData, setUserData] = React.useState({
+    user: "",
+    password: "",
+    newUser: "",
+    newEmail: "",
+    newPassword: "",
+  });
 
-  const cambiarUsuario = (e) => {
-    const value = e.target.value;
-    console.log(value);
-    setUsuario(value);
-  };
+  function handleChange(evt) {
+    const { target } = evt;
+    const { name, value } = target;
 
-  const cambiarEmail = (e) => {
-    const value = e.target.value;
-    console.log(value);
-    setEmail(value);
-  };
+    const newUserData = {
+      ...userData,
+      [name]: value,
+    };
 
-  const cambiarContraseña = (e) => {
-    const value = e.target.value;
-    console.log(value);
-    setContraseña(value);
-  };
+    setUserData(newUserData);
+  }
 
   const iniciarSesion = () => {
     // Acá se desarrollaría la lógica para dejar la sesión iniciada en el sessionStorage
-    console.log("Usuario: ", usuario);
-    console.log("Contraseña: ", contraseña);
+    console.log("Usuario: ", userData.user);
+    console.log("Contraseña: ", userData.contraseña);
   };
 
   const registrarUsuario = () => {
     // Acá se desarrollaría la lógica para agregarlo a la BBDD del backend luego de verificar que no exista
-    console.log("Usuario: ", usuario);
-    console.log("Email: ", email);
-    console.log("Contraseña: ", contraseña);
+    console.log("Usuario: ", userData.user);
+    console.log("Email: ", userData.email);
+    console.log("Contraseña: ", userData.contraseña);
   };
 
   return (
@@ -55,27 +53,29 @@ function SingIn() {
             <div>
               <div>
                 <label className="singIng--form_label">
-                  <FaRegUserCircle fontSize={"1.2rem"}/>
+                  <FaRegUserCircle fontSize={"1.2rem"} />
                 </label>
                 <input
                   className="singIng--form_input"
-                  id="usuario"
-                  name="usuario"
-                  value={usuario}
-                  onChange={cambiarUsuario}
+                  id="user"
+                  name="user"
+                  value={userData.user}
+                  placeholder={"Usuario"}
+                  onChange={handleChange}
                 ></input>
               </div>
 
               <div>
                 <label className="singIng--form_label">
-                  <BiLockOpenAlt fontSize={"1.2rem"}/>
+                  <BiLockOpenAlt fontSize={"1.2rem"} />
                 </label>
                 <input
                   className="singIng--form_input"
-                  id="pass"
-                  name="Contraseña"
-                  value={contraseña}
-                  onChange={cambiarContraseña}
+                  id="password"
+                  name="password"
+                  value={userData.password}
+                  placeholder={"Contraseña"}
+                  onChange={handleChange}
                 ></input>
               </div>
             </div>
@@ -92,40 +92,43 @@ function SingIn() {
             <div>
               <div>
                 <label className="singIng--form_label">
-                  <FaRegUserCircle fontSize={"1.2rem"}/>
+                  <FaRegUserCircle fontSize={"1.2rem"} />
                 </label>
                 <input
                   className="singIng--form_input"
-                  id="usuario"
-                  name="usuario"
-                  value={usuario}
-                  onChange={cambiarUsuario}
+                  id="newUser"
+                  name="newUser"
+                  value={userData.newUser}
+                  placeholder={"Usuario"}
+                  onChange={handleChange}
                 ></input>
               </div>
 
               <div>
                 <label className="singIng--form_label">
-                  <AiOutlineMail fontSize={"1.2rem"}/>
+                  <AiOutlineMail fontSize={"1.2rem"} />
                 </label>
                 <input
                   className="singIng--form_input"
-                  id="email"
-                  name="Email"
-                  value={email}
-                  onChange={cambiarEmail}
+                  id="newEmail"
+                  name="newEmail"
+                  value={userData.newEmail}
+                  placeholder={"Email"}
+                  onChange={handleChange}
                 ></input>
               </div>
 
               <div>
                 <label className="singIng--form_label">
-                  <BiLockOpenAlt fontSize={"1.2rem"}/>
+                  <BiLockOpenAlt fontSize={"1.2rem"} />
                 </label>
                 <input
                   className="singIng--form_input"
-                  id="pass"
-                  name="Contraseña"
-                  value={contraseña}
-                  onChange={cambiarContraseña}
+                  id="newPassword"
+                  name="newPassword"
+                  value={userData.newPassword}
+                  placeholder={"Contraseña"}
+                  onChange={handleChange}
                 ></input>
               </div>
             </div>
