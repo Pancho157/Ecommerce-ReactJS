@@ -77,6 +77,7 @@ Lista de tecnologías utilizadas en el proyecto:
 - [React-Router-Dom](https://v5.reactrouter.com/web/guides/quick-start) - Versión: 6.3.0
 - [Styled-Components](https://styled-components.com) - Versión: 5.3.3
 - [React-Icons](https://react-icons.github.io/react-icons/) - Versión: 4.3.1
+- [md5](https://www.npmjs.com/package/md5) - Versión: 2.3.0
 
 # Instalación de la app
 
@@ -93,6 +94,9 @@ $ npm start
 
 
 # TODO:
+- Incluir la funcionalidad para inicio de sesión
+  - Modificar el como se obtienen los valores en los campos del formulario de registro e inicio de sesión (tienen las mismas variables y cambia ambos) 
+
 - Desarrollar la página de ventas
    - Automatizar el ingreso de productos con las ventas
    - Verificar que se haya iniciado la sesión primero

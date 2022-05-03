@@ -115,3 +115,23 @@ export const mainPageProducts = [
     quantity: 0,
   },
 ];
+
+// --------- Usuarios-------------
+
+export const users = [
+  {
+    id: 1,
+    user: "prueba",
+    password: "1c7a92ae351d4e21ebdfb897508f59d6", // "holamundo" con la encriptación MD5
+  },
+  {
+    id: 2,
+    user: "segundoUsuario",
+    password: "827ccb0eea8a706c4c34a16891f84e7b", // "12345" con la encriptación MD5
+  },
+  {
+    id: 3,
+    user: "Tercer Usuario",
+    password: "01cfcd4f6b8770febfb40cb906715822", // "54321" con la encriptación MD5
+  },
+];

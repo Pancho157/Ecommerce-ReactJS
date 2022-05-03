@@ -16,7 +16,7 @@ const ItemCount = ({ stock, data }) => {
   const [userinput, setUserInput] = useState(1);
   const [contador, setContador] = useState(1);
 
-  // Funciones que agregan y restan al contador que indica la cantidad a agregar al carrito
+  // Funciones 
   const onAdd = (e) => {
     e.stopPropagation();
     if (data.quantity < stock) {
@@ -36,9 +36,9 @@ const ItemCount = ({ stock, data }) => {
     data.quantity = data.quantity + userinput;
     addProductToCart(data);
     setContador(contador + 1);
-    // Utilicé un contador debido a que no logré hacerlo con una variable booleana (no me la tomaba cuando la quería cambiar dentro de la función)
   };
 
+  // Contenido
   return (
     <>
       {contador === 1 ? (
