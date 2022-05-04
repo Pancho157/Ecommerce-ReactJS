@@ -10,7 +10,7 @@
   align-content: center;
   flex-wrap: wrap;
   column-gap: 60px;
-  row-gap: 30px;
+  row-gap: 20px;
 }
 
 .singIng--form_container {
@@ -68,6 +68,16 @@
 
 .singIng--form_button:onclick {
   box-shadow: 2px 2px 2px black inset;
+}
+
+.singIn_sectionsSeparator {
+  width: 250px;
+  max-width: 90%;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 3px 10px;
+  border: 3px solid #ebc08b;
+  text-align: center;
 }
 
 @media (max-width: 470px) {

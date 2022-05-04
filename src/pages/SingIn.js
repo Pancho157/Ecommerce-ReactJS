@@ -18,13 +18,15 @@ function SingIn() {
   const [userData, setUserData] = useState({
     user: "",
     password: "",
+  });
+
+  const [newUserData, setNewUserData] = useState({
     newUser: "",
     newEmail: "",
     newPassword: "",
   });
-  
 
-  function handleChange(evt) {
+  function handleChangeUser(evt) {
     const { target } = evt;
     const { name, value } = target;
 
@@ -34,19 +36,32 @@ function SingIn() {
     };
 
     setUserData(newUserData);
+    console.log(userData)
+  }
+
+  function handleChangeNewUser(evt) {
+    const { target } = evt;
+    const { name, value } = target;
+
+    const userToCreateData = {
+      ...newUserData,
+      [name]: value,
+    };
+
+    setNewUserData(userToCreateData);
+    console.log(newUserData)
   }
 
   const iniciarSesion = (e) => {
-    // Acá se desarrollaría la lógica para dejar la sesión iniciada en el sessionStorage
-    e.preventDefault(); // para prevenir la recarga de la página
+    e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
     const foundUser = users.find(
       (foundUser) => foundUser.user === userData.user
     );
 
     if (foundUser.user !== undefined) {
       if (
-        foundUser.user == userData.user &&
-        foundUser.password == md5(userData.password)
+        foundUser.user === userData.user &&
+        foundUser.password === md5(userData.password)
       ) {
         console.log("Información del usuario: ", userData);
         // Acá se desarrolla la lógica del inicio de sesión para el session storage
@@ -55,15 +70,15 @@ function SingIn() {
       }
     } else {
       alert("No se encontró el usuario especificado");
-
     }
   };
 
-  const registrarUsuario = () => {
-    // Acá se desarrollaría la lógica para agregarlo a la BBDD del backend luego de verificar que no exista
-    console.log("Usuario: ", userData.user);
-    console.log("Email: ", userData.email);
-    console.log("Contraseña: ", userData.contraseña);
+  const registrarUsuario = (e) => {
+    e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
+
+    console.log("Usuario: ", newUserData.newUser);
+    console.log("Email: ", newUserData.newEmail);
+    console.log("Contraseña: ", md5(newUserData.newPassword));
   };
 
   return (
@@ -83,7 +98,7 @@ function SingIn() {
                   name="user"
                   value={userData.user}
                   placeholder={"Usuario"}
-                  onChange={handleChange}
+                  onChange={handleChangeUser}
                 ></input>
               </div>
 
@@ -98,7 +113,7 @@ function SingIn() {
                   name="password"
                   value={userData.password}
                   placeholder={"Contraseña"}
-                  onChange={handleChange}
+                  onChange={handleChangeUser}
                 ></input>
               </div>
             </div>
@@ -108,6 +123,8 @@ function SingIn() {
             </button>
           </form>
         </section>
+
+        <h2 className="singIn_sectionsSeparator">O</h2>
 
         <section>
           <form className="singIng--form_container">
@@ -121,9 +138,9 @@ function SingIn() {
                   className="singIng--form_input"
                   id="newUser"
                   name="newUser"
-                  value={userData.newUser}
+                  value={newUserData.newUser}
                   placeholder={"Usuario"}
-                  onChange={handleChange}
+                  onChange={handleChangeNewUser}
                 ></input>
               </div>
 
@@ -135,9 +152,9 @@ function SingIn() {
                   className="singIng--form_input"
                   id="newEmail"
                   name="newEmail"
-                  value={userData.newEmail}
+                  value={newUserData.newEmail}
                   placeholder={"Email"}
-                  onChange={handleChange}
+                  onChange={handleChangeNewUser}
                 ></input>
               </div>
 
@@ -146,12 +163,13 @@ function SingIn() {
                   <BiLockOpenAlt fontSize={"1.2rem"} />
                 </label>
                 <input
+                  type="password"
                   className="singIng--form_input"
                   id="newPassword"
                   name="newPassword"
-                  value={userData.newPassword}
+                  value={newUserData.newPassword}
                   placeholder={"Contraseña"}
-                  onChange={handleChange}
+                  onChange={handleChangeNewUser}
                 ></input>
               </div>
             </div>
