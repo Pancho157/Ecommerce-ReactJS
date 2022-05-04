@@ -94,10 +94,7 @@ $ npm start
 
 # TODO:
 
-- Incluir la funcionalidad para inicio de sesión
-
-  - Ver por qué el find en el array de users da error (Uncaught TypeError: false is not a function
-    at Array.find (<anonymous>))
+- Incluir la funcionalidad para inicio de sesión (crear el tocken que lo verifica en el sesion storage)
 
 - Desarrollar la página de ventas
 

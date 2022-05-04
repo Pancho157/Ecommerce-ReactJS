@@ -18,15 +18,12 @@ function SingIn() {
   const [userData, setUserData] = useState({
     user: "",
     password: "",
-  });
-
-  const [newUserData, setNewUserData] = useState({
     newUser: "",
     newEmail: "",
     newPassword: "",
   });
 
-  function handleChangeUser(evt) {
+  function handleChange(evt) {
     const { target } = evt;
     const { name, value } = target;
 
@@ -37,19 +34,6 @@ function SingIn() {
 
     setUserData(newUserData);
     console.log(userData)
-  }
-
-  function handleChangeNewUser(evt) {
-    const { target } = evt;
-    const { name, value } = target;
-
-    const userToCreateData = {
-      ...newUserData,
-      [name]: value,
-    };
-
-    setNewUserData(userToCreateData);
-    console.log(newUserData)
   }
 
   const iniciarSesion = (e) => {
@@ -64,7 +48,8 @@ function SingIn() {
         foundUser.password === md5(userData.password)
       ) {
         console.log("Información del usuario: ", userData);
-        // Acá se desarrolla la lógica del inicio de sesión para el session storage
+        // TODO: ingresar los datos del usuario al session storage
+        // Crear una variable que informe que se encuentra logueado
       } else {
         alert("La contraseña o el usuario no cohincíden");
       }
@@ -75,10 +60,9 @@ function SingIn() {
 
   const registrarUsuario = (e) => {
     e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
-
-    console.log("Usuario: ", newUserData.newUser);
-    console.log("Email: ", newUserData.newEmail);
-    console.log("Contraseña: ", md5(newUserData.newPassword));
+    
+    // TODO: Verificar que no exista el nombre de usuario y agregarlo al array de usuarios
+    // Colocar solo los datos que correspondan a la creación del usuario
   };
 
   return (
@@ -98,7 +82,7 @@ function SingIn() {
                   name="user"
                   value={userData.user}
                   placeholder={"Usuario"}
-                  onChange={handleChangeUser}
+                  onChange={handleChange}
                 ></input>
               </div>
 
@@ -113,7 +97,7 @@ function SingIn() {
                   name="password"
                   value={userData.password}
                   placeholder={"Contraseña"}
-                  onChange={handleChangeUser}
+                  onChange={handleChange}
                 ></input>
               </div>
             </div>
@@ -138,9 +122,9 @@ function SingIn() {
                   className="singIng--form_input"
                   id="newUser"
                   name="newUser"
-                  value={newUserData.newUser}
+                  value={userData.newUser}
                   placeholder={"Usuario"}
-                  onChange={handleChangeNewUser}
+                  onChange={handleChange}
                 ></input>
               </div>
 
@@ -152,9 +136,9 @@ function SingIn() {
                   className="singIng--form_input"
                   id="newEmail"
                   name="newEmail"
-                  value={newUserData.newEmail}
+                  value={userData.newEmail}
                   placeholder={"Email"}
-                  onChange={handleChangeNewUser}
+                  onChange={handleChange}
                 ></input>
               </div>
 
@@ -167,9 +151,9 @@ function SingIn() {
                   className="singIng--form_input"
                   id="newPassword"
                   name="newPassword"
-                  value={newUserData.newPassword}
+                  value={userData.newPassword}
                   placeholder={"Contraseña"}
-                  onChange={handleChangeNewUser}
+                  onChange={handleChange}
                 ></input>
               </div>
             </div>
