@@ -15,6 +15,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "herramientas",
     quantity: 0,
+    creator: "segundoUsuario",
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "consumibles",
     quantity: 0,
+    creator: "prueba",
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "herramientas",
     quantity: 0,
+    creator: "segundoUsuario",
   },
   {
     id: 4,
@@ -57,6 +60,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "herramientas",
     quantity: 0,
+    creator: "prueba",
   },
   {
     id: 5,
@@ -71,6 +75,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "herramientas",
     quantity: 0,
+    creator: "segundoUsuario",
   },
   {
     id: 6,
@@ -85,6 +90,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "herramientas",
     quantity: 0,
+    creator: "prueba",
   },
   {
     id: 7,
@@ -99,6 +105,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "herramientas",
     quantity: 0,
+    creator: "Tercer Usuario",
   },
   {
     id: 8,
@@ -113,6 +120,7 @@ export const mainPageProducts = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quos atque sit cum officiis accusantium doloremque odit distinctio repudiandae voluptate!",
     category: "herramientas",
     quantity: 0,
+    creator: "Tercer Usuario",
   },
 ];
 
