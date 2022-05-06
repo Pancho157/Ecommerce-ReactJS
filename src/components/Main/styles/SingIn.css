@@ -1,7 +1,7 @@
 .singIn--main {
   width: 100%;
   height: calc(100vh - 120px);
-  background-image: url("../../images/mainBackground.webp");
+  background-image: url("../../../images/mainBackground.webp");
   padding: 60px;
   display: flex;
   flex-direction: column;
