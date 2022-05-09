@@ -27,20 +27,7 @@ const ItemList = () => {
       let product = doc.data();
       return product;
     });
-    console.log(productList);
     return productList;
-  };
-
-  const getApiProducts = async () => {
-    // verifica si se pasó una categoría como parámetro, y almacena todos los productos o solo los de una categoría
-    try {
-      const result = await getProducts;
-      setProducts([]);
-      setLoading(false);
-    } catch (error) {
-      console.warn(error);
-      alert("No podemos mostrar los productos en este momento");
-    }
   };
 
   const filterProductsByCategory = (array, category) => {
