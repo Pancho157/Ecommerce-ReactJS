@@ -5,11 +5,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 // Components
-import { mainPageProducts } from "../../data/data";
 import Item from "./Item";
 
 // Styles
 import "./styles/ItemList.css";
+
+// Firebase
+import database from "../../data/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemList = () => {
   const navigate = useNavigate();
@@ -17,23 +20,23 @@ const ItemList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getProducts = new Promise((resolve, reject) => {
-    // Trae los productos desde el archivo (data.js) mediante una promesa que se resuelve luego de 2 segundos
-    setTimeout(() => {
-      resolve(mainPageProducts);
-    }, 2000);
-  });
+  const getProducts = async () => {
+    const itemsCollection = collection(database, "productos");
+    const productosSnapshot = await getDocs(itemsCollection);
+    const productList = productosSnapshot.docs.map((doc) => {
+      let product = doc.data();
+      return product;
+    });
+    console.log(productList);
+    return productList;
+  };
 
   const getApiProducts = async () => {
-    // Espera a que finalice la promise y dependiendo de si se pasó algun valor por category (useParams) almacena los productos en el array vacío (products) o los filtra por categoría y los almacena en el array vacío
+    // verifica si se pasó una categoría como parámetro, y almacena todos los productos o solo los de una categoría
     try {
       const result = await getProducts;
       setProducts([]);
       setLoading(false);
-      // Verifica que se haya pasado un valor por useParams (en category)
-      category !== undefined
-        ? filterProductsByCategory(mainPageProducts, category)
-        : setProducts(result);
     } catch (error) {
       console.warn(error);
       alert("No podemos mostrar los productos en este momento");
@@ -51,15 +54,20 @@ const ItemList = () => {
   useEffect(() => {
     setLoading(true);
     setProducts([]);
-    getApiProducts();
+
+    getProducts().then((productos) => {
+      setLoading(false);
+      category
+        ? filterProductsByCategory(productos, category)
+        : setProducts(productos);
+    });
   }, [category]);
 
-  // Utilizo esta manera de navegar en vez de <Link> debido a que con <Link> no es posible utilizar el stopPropagation para agregar la funcionalidad del ItemCount
   const changeToDetailPage = (category, id) => {
     navigate(`/${category}/${id}`);
   };
 
-  // Llama a la función que almacena los datos en el array products, los recorre con el map y los renderiza con el <Item {props} />
+  // Renderiza los items recorriendo el array de poroductos
   return (
     <section className="cards-container">
       {loading ? (
@@ -83,7 +91,6 @@ const ItemList = () => {
                   changeToDetailPage(product.category, product.id);
                 }}
               >
-                {/* Cuando se haga click sobre el producto va a llamar a la función que muestra el detalle del mismo */}
                 <Item
                   id={product.id}
                   imgUrl={product.imgUrl}

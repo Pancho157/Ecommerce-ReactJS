@@ -94,6 +94,8 @@ $ npm start
 
 # TODO:
 
+- Cambiar las consultas al archivo data para que consulten a firebase
+
 - Incluir la funcionalidad para inicio de sesión (crear el tocken que lo verifica en el sesion storage)
 
 - Desarrollar la página de ventas
