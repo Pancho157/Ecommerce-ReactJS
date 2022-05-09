@@ -9,8 +9,9 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLockOpenAlt } from "react-icons/bi";
 
-// Usuarios
-import { users } from "../../data/data";
+// Firebase
+import database from "../../data/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 export function RenderLoginForm() {
   const [userData, setUserData] = useState({
@@ -34,25 +35,16 @@ export function RenderLoginForm() {
     console.log(userData);
   }
 
-  const iniciarSesion = (e) => {
+  const iniciarSesion = async (e) => {
     e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
-    const foundUser = users.find(
-      (foundUser) => foundUser.user === userData.user
-    );
+    const docRef = doc(database, "users", userData.user);
+    const docSnap = await getDoc(docRef);
 
-    if (foundUser.user !== undefined) {
-      if (
-        foundUser.user === userData.user &&
-        foundUser.password === md5(userData.password)
-      ) {
-        console.log("Información del usuario: ", userData);
-        // TODO: ingresar los datos del usuario al session storage
-        // Crear una variable que informe que se encuentra logueado
-      } else {
-        alert("La contraseña o el usuario no cohincíden");
-      }
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      // Acá debería colocar los datos del usuario para indicar que se inició sesión
     } else {
-      alert("No se encontró el usuario especificado");
+      console.log("No such document!");
     }
   };
 
