@@ -99,7 +99,6 @@ $ npm start
 - Incluir la funcionalidad para inicio de sesión (crear el tocken que lo verifica en el sesion storage)
 
 - Desarrollar la página de ventas
-
   - Automatizar el ingreso de productos con las ventas
   - Verificar que se haya iniciado la sesión primero (con Firebase)
   - En caso de no haber iniciado sesión utilizar el Modal para iniciarla

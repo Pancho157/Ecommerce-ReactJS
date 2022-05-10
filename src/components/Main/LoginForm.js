@@ -11,7 +11,7 @@ import { BiLockOpenAlt } from "react-icons/bi";
 
 // Firebase
 import database from "../../data/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export function RenderLoginForm() {
   const [userData, setUserData] = useState({
@@ -32,7 +32,6 @@ export function RenderLoginForm() {
     };
 
     setUserData(newUserData);
-    console.log(userData);
   }
 
   const iniciarSesion = async (e) => {
@@ -59,7 +58,17 @@ export function RenderLoginForm() {
     if (docSnap.exists()) {
       alert("El nombre de usuario ingresado ya existe");
     } else {
-      // Colocar acá la lógica para generar un nuevo usuario
+      const newUserData = [
+        {
+          user: userData.newUser,
+          contraseña: userData.newPassword,
+          email: userData.newEmail,
+        },
+      ];
+
+      const docRef = doc(database, "users", newUserData.user);
+      await setDoc(docRef, newUserData);
+      console.log("Exito");
     }
   };
 
