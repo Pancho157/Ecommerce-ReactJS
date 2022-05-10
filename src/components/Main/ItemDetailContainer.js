@@ -1,39 +1,40 @@
-// Componentes
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
-import { mainPageProducts } from "../../data/data";
+import { useParams } from "react-router-dom";
+
+// Componentes
 import ItemDetail from "./ItemDetail";
 
 // Styles
 import "./styles/ItemDetailContainer.css";
+
+// Firebase
+import database from "../../data/firebase";
+import { doc, getDoc } from "firebase/firestore";
+
 export default function ItemDetailContainer({}) {
-  // const [item, setItem] = useState({});
-
-
-
-  const { id, category } = useParams();
+  const { id } = useParams();
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    getProductByID(mainPageProducts, id);
+    getProductByID(id);
   }, []);
 
-  const getProductByID = (array, id) => {
-    return array.map((product) => {
-      if (product.id == id && product.category == category) {
-        return setProductData(product);
-      }
-    });
+  const getProductByID = async (id) => {
+    const docRef = doc(database, "productos", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      setProductData(docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
   };
-
-
 
   return (
     <>
-    {/* Llama a la parte estética del detalle del producto y le pasa los props para rellenar los campos */}
-    <main className="detailItem-main">
-      <ItemDetail data={productData} />
-    </main>
+      <main className="detailItem-main">
+        <ItemDetail data={productData} />
+      </main>
     </>
   );
 }
