@@ -94,6 +94,8 @@ $ npm start
 
 # TODO:
 
+- Hacer todas las querys a la API en un solo archivo
+
 - Incluir la funcionalidad para inicio de sesión (crear el tocken que lo verifica en el sesion storage)
 
 - Desarrollar la página de ventas
@@ -103,7 +105,6 @@ $ npm start
   - En caso de no haber iniciado sesión utilizar el Modal para iniciarla
 
 - Desarrollar la página de ofertas
-
   - Agregar la propiedad de oferta en el array con todos los productos
   - Qué el valor de la propiedad sea numérico para poder verificar si lo tiene o no, y filtrarlo de esa manera (aparte de calcular el precio final)
 

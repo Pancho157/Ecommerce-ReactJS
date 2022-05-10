@@ -41,8 +41,11 @@ export function RenderLoginForm() {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-      // Acá debería colocar los datos del usuario para indicar que se inició sesión
+      if (docSnap.data().contraseña === md5(userData.password)) {
+        // Acá va el sessionStorage con el nombre de usuario
+      } else {
+        alert("La contraseña es erronea");
+      }
     } else {
       console.log("No such document!");
     }
