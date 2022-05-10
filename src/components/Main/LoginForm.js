@@ -47,15 +47,20 @@ export function RenderLoginForm() {
         alert("La contraseña es erronea");
       }
     } else {
-      console.log("No such document!");
+      alert("No se encontró el usuario ingresado");
     }
   };
 
-  const registrarUsuario = (e) => {
+  const registrarUsuario = async (e) => {
     e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
+    const docRef = doc(database, "users", userData.newUser);
+    const docSnap = await getDoc(docRef);
 
-    // TODO: Verificar que no exista el nombre de usuario y agregarlo al array de usuarios
-    // Colocar solo los datos que correspondan a la creación del usuario
+    if (docSnap.exists()) {
+      alert("El nombre de usuario ingresado ya existe");
+    } else {
+      // Colocar acá la lógica para generar un nuevo usuario
+    }
   };
 
   return (
