@@ -41,7 +41,6 @@ const CartProvider = ({ children }) => {
   const totalToPay = () => {
     setTotalPrice(0);
 
-    // TODO: Ver porqué no agrega el precio de todos los productos
     cartProducts.map((cartProduct) => {
       return setTotalPrice(totalPrice + cartProduct.price);
     });
