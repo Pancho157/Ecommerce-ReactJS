@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import md5 from "md5";
 
 // Styles
 import "./styles/SingIn.css";
@@ -9,11 +8,11 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLockOpenAlt } from "react-icons/bi";
 
-// Firebase
-import database from "../../data/firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+// Hooks
+import useUser from "../../hooks/useUser";
 
 export function RenderLoginForm() {
+  const { login, registerNewUser, logOut, isLoggedIn } = useUser();
   const [userData, setUserData] = useState({
     user: "",
     password: "",
@@ -36,40 +35,12 @@ export function RenderLoginForm() {
 
   const iniciarSesion = async (e) => {
     e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
-    const docRef = doc(database, "users", userData.user);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-      if (docSnap.data().contraseña === md5(userData.password)) {
-        // Acá va el sessionStorage con el nombre de usuario
-      } else {
-        alert("La contraseña es erronea");
-      }
-    } else {
-      alert("No se encontró el usuario ingresado");
-    }
+    login(userData.user, userData.password);
   };
 
   const registrarUsuario = async (e) => {
     e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
-    const docRef = doc(database, "users", userData.newUser);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-      alert("El nombre de usuario ingresado ya existe");
-    } else {
-      const newUserData = [
-        {
-          user: userData.newUser,
-          contraseña: userData.newPassword,
-          email: userData.newEmail,
-        },
-      ];
-
-      const docRef = doc(database, "users", newUserData.user);
-      await setDoc(docRef, newUserData);
-      console.log("Exito");
-    }
+    registerNewUser(userData.newUser, userData.newEmail, userData.newPassword);
   };
 
   return (
