@@ -28,14 +28,8 @@ function DropdownMenu() {
   const navigate = useNavigate();
   const { cartProducts, deleteProductFromCart } = useContext(CartContext);
 
-  // TODO: Ver la función de debajo y la siguiente
   const changeToDetailPage = (category, id) => {
     navigate(`/${category}/${id}`);
-  };
-
-  const goToProductDetail = (e, id) => {
-    e.stopPropagation();
-    deleteProductFromCart(e, id);
   };
 
   const deleteProduct = (e, cartProduct) => {
@@ -67,9 +61,9 @@ function DropdownMenu() {
 
         <button
           className="dropdownItem-trashButton"
-          onClick={(e) => goToProductDetail(e, props.id)}
+          onClick={() => changeToDetailPage(props.category, props.id)}
         >
-          <FaTrashAlt onClick={(e) => deleteProduct(e, props.id)}/>
+          <FaTrashAlt onClick={(e) => deleteProduct(e, props.id)} />
         </button>
       </div>
     );

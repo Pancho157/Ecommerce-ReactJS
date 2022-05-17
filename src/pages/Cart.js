@@ -165,7 +165,7 @@ function Cart() {
           return (
             <article
               onClick={() => {
-                changeToDetailPage(cartProduct);
+                changeToDetailPage(cartProduct.category, cartProduct.id);
               }}
               key={cartProduct.id}
             >
