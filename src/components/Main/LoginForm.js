@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 // Styles
 import "./styles/SingIn.css";
@@ -8,11 +8,11 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLockOpenAlt } from "react-icons/bi";
 
-// Hooks
-import useUser from "../../hooks/useUser";
+// Context
+import UserContext from "../../context/UserContext";
 
 export function RenderLoginForm() {
-  const { login, registerNewUser, logOut, isLoggedIn } = useUser();
+  const { login, registerNewUser, logOut, isLoggedIn } = useContext(UserContext);
   const [userData, setUserData] = useState({
     user: "",
     password: "",
