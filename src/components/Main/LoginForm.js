@@ -12,7 +12,7 @@ import { BiLockOpenAlt } from "react-icons/bi";
 import UserContext from "../../context/UserContext";
 
 export function RenderLoginForm() {
-  const { login, registerNewUser, logOut, isLoggedIn } = useContext(UserContext);
+  const { login, registerNewUser } = useContext(UserContext);
   const [userData, setUserData] = useState({
     user: "",
     password: "",
@@ -34,13 +34,21 @@ export function RenderLoginForm() {
   }
 
   const iniciarSesion = async (e) => {
-    e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
+    e.preventDefault();
     login(userData.user, userData.password);
   };
 
   const registrarUsuario = async (e) => {
-    e.preventDefault(); // para prevenir la recarga de la página debido al envío del formulario
-    registerNewUser(userData.newUser, userData.newEmail, userData.newPassword);
+    e.preventDefault();
+    if (userData.newPassword.length < 6) {
+      alert("La contraseña debe tener al menos 6 caracteres");
+    } else {
+      registerNewUser(
+        userData.newUser,
+        userData.newEmail,
+        userData.newPassword
+      );
+    }
   };
 
   return (

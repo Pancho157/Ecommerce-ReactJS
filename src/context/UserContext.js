@@ -7,7 +7,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const UserContext = createContext();
 
-export function UserContextProvider({ children }) {
+function UserContextProvider({ children }) {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   // Funciones
@@ -17,9 +17,9 @@ export function UserContextProvider({ children }) {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        // La contraseña se encripta con md5 porque se almacena de esa manera en la BBDD
+        // La contraseña se encuentra encriptada con md5 en la BBDD
         if (docSnap.data().contraseña === md5(password)) {
-          // Acá va el sessionStorage con el nombre de usuario
+          setLoggedInUser(user); // Almacena el nombre de usuario
         } else {
           alert("La contraseña es erronea");
         }
@@ -39,7 +39,6 @@ export function UserContextProvider({ children }) {
     } else {
       const newUserData = [
         {
-          user: newUser,
           contraseña: newPassword,
           email: newEmail,
         },
@@ -70,7 +69,5 @@ export function UserContextProvider({ children }) {
   );
 }
 
+export { UserContextProvider };
 export default UserContext;
-
-// Todo: Hacer todo lo del context en este archivo y eliminar el hook useUser
-// Basarme en el cartContext
