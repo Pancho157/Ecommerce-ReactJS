@@ -32,7 +32,7 @@ function SellingItemsList() {
   };
 
   const changeToLoginPage = () => {
-    navigate(`/`);
+    navigate(`./pages/SellList`);
   };
 
   useEffect(() => {
@@ -48,6 +48,7 @@ function SellingItemsList() {
   return (
     <div className="SellList--ProductsSection">
       {isLoggedIn ? (
+        // Todo: Modificar los articles de los productos para mostrar su info y eliminarlos en este archivo
         userProducts.map((product) => {
           return (
             <article className="card" productid={product.id}>

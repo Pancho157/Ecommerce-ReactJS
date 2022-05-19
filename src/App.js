@@ -11,7 +11,6 @@ import Contact from "./pages/Contact";
 import DetailPage from "./pages/ItemPage";
 import CategoryPage from "./pages/CategoryPage";
 import SearchResultsPage from "./pages/FilteredItems";
-import SellingItemInfo from "./pages/ItemSell";
 import SellingItemsList from "./pages/SellList";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
@@ -35,7 +34,6 @@ function App() {
               <Route path="/:categoty/:id" element={<DetailPage />} />
               <Route path="/categorias/:category" element={<CategoryPage />} />
               <Route path="/resultado" element={<SearchResultsPage />} />
-              <Route path="/ventas/item" element={<SellingItemInfo />} />
               <Route path="/ventas/allItems" element={<SellingItemsList />} />
               <Route path="/iniciarSesion" element={<SingIn />} />
               <Route path="*" element={<NotFound />} />
