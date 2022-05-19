@@ -1,8 +1,14 @@
-import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import database from "../data/firebase";
 import { useNavigate } from "react-router-dom";
+
+// Firebase
+import database from "../data/firebase";
+import { collection, getDocs } from "firebase/firestore";
+
+// Components
 import Item from "../components/Main/Item";
+
+// Styles
 import "./styles/Offers.css";
 
 function Offers() {

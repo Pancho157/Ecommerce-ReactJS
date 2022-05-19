@@ -1,9 +1,6 @@
-// Este archivo actúa como landing page
-
-// Components
+// Esta es la Landing page
 import ItemListContainer from "..//components/Main/ItemListContainer";
 
-// En el caso del home no es muy complejo debido a que el navbar y el footer se mantienen siempre renderizados
 function Home() {
   return (
     <>

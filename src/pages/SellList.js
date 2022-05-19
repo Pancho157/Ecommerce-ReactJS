@@ -1,12 +1,13 @@
-// Styles
-import "./inProgress.css";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Context
 import CartContext from "../context/CartContext";
-import { useContext, useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+
+// Firebase
 import database from "../data/firebase";
-import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+
 function SellingItemsList() {
   const navigate = useNavigate();
   const [loggedInUser, isLoggedIn] = useContext(CartContext);

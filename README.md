@@ -99,10 +99,8 @@ $ npm start
   - Automatizar el ingreso de productos con las ventas
   - Hacer que se puedan agregar, modificar y eliminar productos
 
-- Desarrollar la página de ofertas
-  - Agregar la propiedad de oferta en el array con todos los productos
-  - Qué el valor de la propiedad sea numérico para poder verificar si lo tiene o no, y filtrarlo de esa manera (aparte de calcular el precio final)
-
 - Ver que el array del carrito se mantenga montado en las demás páginas aparte del Cart.js (para poder eliminar siempre los elementos)
 
 - Desarrollar la búsqueda con la barra de búsqueda
+
+- Verificar que se encuentre iniciada la sesión para enviar el mensaje en la página de contacto

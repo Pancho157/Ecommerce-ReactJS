@@ -1,6 +1,5 @@
 // Esta página tiene le destino de mostrar los elementos que se tengan como respuesta de una búsqueda en la barra de busqueda
-
-import "./inProgress.css"
+import "./styles/inProgress.css"
 
 function FilteredItems() {
   return (

@@ -1,5 +1,4 @@
 // Esta página está destinada a poseer un formulario para reportar errores y posibles mejoras
-// Cuando esté totalmente implementado solo podrán enviár reportes los que tengan iniciada su sessión
 import { useState } from "react";
 import "./styles/Contact.css";
 function Contact() {
@@ -20,15 +19,16 @@ function Contact() {
 
   return (
     <>
-      {/* <h1 className="inProgress">Esta página se encuentra en desarrollo</h1> */}
-
       <main className="contact--main">
         <section>
           <form className="contact--form_container">
             <h1 className="contact--form_title">
               Cuentanos sobre lo que viste!
             </h1>
-            <p>Siempre se agradece la información y participación que nos pueda brindar</p>
+            <p>
+              Siempre se agradece la información y participación que nos pueda
+              brindar
+            </p>
             <div>
               <input
                 className="contact--form_input"
