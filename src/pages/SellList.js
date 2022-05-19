@@ -1,26 +1,84 @@
-// El objetivo de esta página es el de mostrar la lista de items que un usuario tiene a la venta y/o agregar productos a la venta
-// Solo se podrá ingresar a esta parte luego de iniciar sesión
+// Styles
+import "./inProgress.css";
 
-// import { useState } from "react";
-// import { RenderLoginForm } from "../components/Main/LoginForm";
-// import Modal from "../components/Main/Modal";
-// import { useModal } from "../hooks/useModal";
-import "./inProgress.css"
-
+// Context
+import CartContext from "../context/CartContext";
+import { useContext, useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import database from "../data/firebase";
+import { useNavigate } from "react-router-dom";
 function SellingItemsList() {
-  // let {user, setUser} = useState()
-  // let [modalIsOpen, openModal, closeModal] = useModal(false);
-    return (
-      <>
-          <h1 className="inProgress">Esta página se encuentra en desarrollo</h1>
-          {/* {user === 0 ? openModal : ""}
+  const navigate = useNavigate();
+  const [loggedInUser, isLoggedIn] = useContext(CartContext);
+  const [userProducts, setUserProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-          <Modal isOpen={modalIsOpen} closeModal={closeModal}>
-            <RenderLoginForm/>
-          </Modal> */}
+  const getProducts = async () => {
+    const itemsCollection = collection(database, "productos");
+    const productosSnapshot = await getDocs(itemsCollection);
+    const productList = productosSnapshot.docs.map((doc) => {
+      let product = doc.data();
+      return product;
+    });
+    return productList;
+  };
 
-      </>
-    );
-  }
-  
-  export default SellingItemsList;
+  const filterProductsByUser = (array, user) => {
+    return array.map((product) => {
+      if (product.creator == user) {
+        return setUserProducts((userProducts) => [...userProducts, product]);
+      }
+    });
+  };
+
+  const changeToLoginPage = () => {
+    navigate(`/`);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    setUserProducts([]);
+
+    getProducts().then((productos) => {
+      setLoading(false);
+      filterProductsByUser(productos, loggedInUser);
+    });
+  }, []);
+
+  return (
+    <div className="SellList--ProductsSection">
+      {isLoggedIn ? (
+        userProducts.map((product) => {
+          return (
+            <article className="card" productid={product.id}>
+              <img
+                src={product.imgUrl}
+                alt={product.title}
+                className={"card-image"}
+              ></img>
+              <h3 className={"card-tittle"}>{product.title}</h3>
+              <p>Marca: {product.brand}</p>
+              <p>Modelo: {product.model}</p>
+              <p>Precio: $ {product.price}</p>
+              <p>Stock actual: {product.stock}</p>
+            </article>
+          );
+        })
+      ) : (
+        <div className="SellList--ToLoginSection">
+          <h2>UPS, no se encuentra iniciada la sesión</h2>
+          <p>
+            Para poder mostrarle sus productos a la venta es requerido que
+            inicie sesión
+          </p>
+          <button
+            className="SellList--ToLoginButton"
+            onClick={changeToLoginPage}
+          ></button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default SellingItemsList;
