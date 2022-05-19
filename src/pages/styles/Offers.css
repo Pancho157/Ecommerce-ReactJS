@@ -1,0 +1,14 @@
+.offers-main {
+  width: 100%;
+  height: calc(100vh - 120px);
+  background-image: url("../../images/mainBackground.webp");
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  column-gap: 60px;
+  row-gap: 30px;
+}
