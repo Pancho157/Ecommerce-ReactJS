@@ -1,5 +1,3 @@
-/* El objetivo de este archivo es el de contener todas las cards y actuar como una etiqueta <main></main> en las pages que muestren cards sin filtrarlas */
-
 // Components
 import ItemList from "./ItemList";
 

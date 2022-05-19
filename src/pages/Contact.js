@@ -1,9 +1,26 @@
 // Esta página está destinada a poseer un formulario para reportar errores y posibles mejoras
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+// Firebase
+import database from "../data/firebase";
+import { addDoc, collection } from "firebase/firestore";
+
+// Context
+import CartContext from "../context/CartContext";
+
+// Styles
 import "./styles/Contact.css";
 function Contact() {
+  // const [loggedInUser, isLoggedIn] = useContext(CartContext);
+  // Todo: Ver por qué el context genera error
   const [asunto, setAsunto] = useState("Asunto");
   const [mensaje, setMensaje] = useState("Mensaje");
+  const [messageData, setMessageData] = useState({
+    user: "",
+    title: "",
+    message: "",
+    date: "",
+  });
 
   const cambiarAsunto = (e) => {
     const value = e.target.value;
@@ -15,6 +32,17 @@ function Contact() {
     const value = e.target.value;
     console.log(value);
     setMensaje(value);
+  };
+
+  const pushMessage = async () => {
+    const orderFirebase = collection(database, "usersMessages");
+    setMessageData({
+      // user: loggedInUser,
+      title: asunto,
+      message: mensaje,
+      creationDate: new Date().toLocaleDateString(),
+    });
+    const orderDoc = await addDoc(orderFirebase, messageData);
   };
 
   return (

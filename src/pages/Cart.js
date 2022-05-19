@@ -14,7 +14,7 @@ import { useContext, useEffect, useState } from "react";
 import { useModal } from "../hooks/useModal";
 import Modal from "../components/Main/Modal";
 
-// Firebase conextion
+// Firebase
 import database from "../data/firebase";
 import { addDoc, collection } from "firebase/firestore";
 

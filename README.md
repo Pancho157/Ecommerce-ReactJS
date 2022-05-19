@@ -96,7 +96,6 @@ $ npm start
 - Solucionar el error en el userContext (no me deja utilizar las funciónes del archivo - No las toma como funciones)
 
 - Desarrollar el estilo de la página de ventas
-  - Automatizar el ingreso de productos con las ventas
   - Hacer que se puedan agregar, modificar y eliminar productos
 
 - Ver que el array del carrito se mantenga montado en las demás páginas aparte del Cart.js (para poder eliminar siempre los elementos)
