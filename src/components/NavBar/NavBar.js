@@ -78,7 +78,7 @@ const NavBar = () => {
               </MenuItemLink>
             </MenuItem>
             <MenuItem onClick={() => changeClick()}>
-              <Link to={`/Offers`}>
+              <Link to={`/ofertas`}>
                 {/* // TODO: hacer que los productos tengan una categoría llamada Offers y hacer que se renderice en las cards */}
                 <MenuItemLink>
                   <MdOutlineLocalOffer />

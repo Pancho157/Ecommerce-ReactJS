@@ -93,15 +93,11 @@ $ npm start
 ```
 
 # TODO:
+- Solucionar el error en el userContext (no me deja utilizar las funciónes del archivo - No las toma como funciones)
 
-- Hacer todas las querys a la API en un solo archivo
-
-- Incluir la funcionalidad para inicio de sesión (crear el tocken que lo verifica en el sesion storage)
-
-- Desarrollar la página de ventas
+- Desarrollar el estilo de la página de ventas
   - Automatizar el ingreso de productos con las ventas
-  - Verificar que se haya iniciado la sesión primero (con Firebase)
-  - En caso de no haber iniciado sesión utilizar el Modal para iniciarla
+  - Hacer que se puedan agregar, modificar y eliminar productos
 
 - Desarrollar la página de ofertas
   - Agregar la propiedad de oferta en el array con todos los productos

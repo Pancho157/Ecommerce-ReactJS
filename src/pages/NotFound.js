@@ -1,5 +1,3 @@
-// El destino de la presente página es el de mostrar al usuario cuando hay un error en la URL
-
 import "./styles/NotFound.css";
 
 function NotFound() {

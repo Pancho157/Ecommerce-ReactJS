@@ -11,7 +11,6 @@ function SellingItemsList() {
   const navigate = useNavigate();
   const [loggedInUser, isLoggedIn] = useContext(CartContext);
   const [userProducts, setUserProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const getProducts = async () => {
     const itemsCollection = collection(database, "productos");
@@ -36,11 +35,9 @@ function SellingItemsList() {
   };
 
   useEffect(() => {
-    setLoading(true);
     setUserProducts([]);
 
     getProducts().then((productos) => {
-      setLoading(false);
       filterProductsByUser(productos, loggedInUser);
     });
   }, []);
@@ -49,6 +46,7 @@ function SellingItemsList() {
     <div className="SellList--ProductsSection">
       {isLoggedIn ? (
         // Todo: Modificar los articles de los productos para mostrar su info y eliminarlos en este archivo
+        // Todo: Hacer los estilos de esta página
         userProducts.map((product) => {
           return (
             <article className="card" productid={product.id}>
