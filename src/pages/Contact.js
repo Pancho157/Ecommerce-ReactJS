@@ -5,9 +5,6 @@ import { useContext, useState } from "react";
 import database from "../data/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
-// Context
-import CartContext from "../context/CartContext";
-
 // Styles
 import "./styles/Contact.css";
 function Contact() {

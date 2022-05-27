@@ -54,7 +54,7 @@ Hago esto debido a que quiero generar la menor cantidad de documentación necesa
 
 # Como navegar dentro de la app
 
-La manera en la que generé los archivos de la app es la siguiente
+Dentro de la carpeta "src" se encuentran separados los componentes, los context, la vinculación con firebase
 Las carpetas NavBar, Footer y Main poseen dentro todos los archivos js y una carpeta donde se guardan los estilos de los mismos
 
 - Componentes (carpeta)
