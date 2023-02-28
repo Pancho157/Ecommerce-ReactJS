@@ -1,5 +1,5 @@
 // Esta página está destinada a poseer un formulario para reportar errores y posibles mejoras
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 // Firebase
 import database from "../data/firebase";
